@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* 
+| Role       | Color         | Hex       |
+| ---------- | ------------- | --------- |
+| Primary    | Forest Green  | `#2F5D62` |
+| Accent     | Mint          | `#9FE2BF` |
+| Background | Off-white     | `#F0F4F8` |
+| Surface    | Cool Gray     | `#D9E2EC` |
+| Text       | Deep Charcoal | `#1F2937` |
+*/
+
+:root {
+  --primary: #2f5d62;
+  --accent: #9fe2bf;
+  --background: #f0f4f8;
+  --surface: #d9e2ec;
+  --text: #1f2937;
+
+  /* Colors taken from the mountains */
+  --thistle: hsla(281, 31%, 82%, 1);
+  --rose-taupe: hsla(345, 13%, 46%, 1);
+  --english-violet: hsla(263, 11%, 37%, 1);
+  --glaucous: hsla(233, 31%, 59%, 1);
+  --mountbatten-pink: hsla(339, 12%, 54%, 1);
+
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--primary);
+  --color-accent-50: #f1faf6;
+  --color-accent-100: #dcf2e7;
+  --color-accent-200: #b8e5d0;
+  --color-accent-300: #9fe2bf;
+  --color-accent-400: #7acdb0;
+  --color-accent-500: #52b69a;
+  --color-accent-600: #3c9d84;
+  --color-accent-700: #2f5d62;
+  --color-accent-800: #204a47;
+  --color-accent-900: #1a3b3a;
+  --color-accent-950: #0e211f;
+
+  --color-primary-50: #f2f8f7;
+  --color-primary-100: #d6ece9;
+  --color-primary-200: #a8d7d1;
+  --color-primary-300: #7ac3b9;
+  --color-primary-400: #4daba2;
+  --color-primary-500: #2f5d62;
+  --color-primary-600: #264b4f;
+  --color-primary-700: #1e3b3f;
+  --color-primary-800: #152b2e;
+  --color-primary-900: #0e1e20;
+  --color-primary-950: #081214;
+
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
