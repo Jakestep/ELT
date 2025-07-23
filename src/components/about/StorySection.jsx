@@ -1,60 +1,82 @@
 "use client";
-import { motion } from "motion/react";
+import StoryComponent from "./StoryComponent";
 
 const StorySection = () => {
+
+  const storyData = [
+    {
+      icon: "Zap",
+      title: "Why EverLessTech?",
+      text: "EverLessTech was created to cut through the noise — a response to the stress, friction, and complexity people face when dealing with clunky, half-finished software.",
+    },
+    {
+      icon: "Feather",
+      title: "Built for Simplicity",
+      text: "Our goal is simple: build clean, responsive websites that feel effortless to use and easy to trust.",
+    },
+    {
+      icon: "Eye",
+      title: "Transparent Process",
+      text: "Clients can follow progress in real time, give feedback anytime, and always know what’s happening behind the scenes.",
+    },
+    {
+      icon: "Code",
+      title: "Small Changes, Constantly",
+      text: "Frequent, focused updates using CI/CD — not big risky rollouts.",
+    },
+    {
+      icon: "Heart",
+      title: "Less Tech, More Life",
+      text: "Not just a motto — a working principle. You handle your business, I’ll handle the backend.",
+    },
+  ];
+
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Our Story
-            </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Founded with a mission to bridge the gap between innovative
-              technology and practical business solutions, EverLessTech has been
-              helping companies transform their ideas into powerful software
-              applications.
-            </p>
-            <p className="text-lg text-gray-600 mb-6">
-              With over a decade of experience in software development, we've
-              worked with startups, growing businesses, and established
-              enterprises to deliver solutions that not only meet today's needs
-              but are built to scale for tomorrow's challenges.
-            </p>
-            <p className="text-lg text-gray-600">
-              Our approach is simple: understand your business, deliver quality
-              code, and build lasting partnerships that grow with your success.
-              We believe in our motto - "Less tech, more life" - meaning we
-              handle the complex technology so you can focus on what matters
-              most.
-            </p>
+          
+          <div className="bg-gray-100 rounded-lg p-8">
+            <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-4 auto-rows-subgrid ">
+              {storyData.map((item, idx) => (
+                <StoryComponent key={idx} {...item} />
+              ))}
+            </div>
           </div>
+
           <div className="bg-gray-100 rounded-lg p-8">
             <div className="grid grid-cols-2 gap-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent-600 mb-2">
-                  10+
+                <div className="text-lg font-semibold text-accent-600 mb-2">
+                  Built With Intention
                 </div>
-                <div className="text-gray-600">Years Experience</div>
+                <div className="text-gray-600 text-sm">
+                  Every decision serves a purpose.
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent-600 mb-2">
-                  100+
+                <div className="text-lg font-semibold text-accent-600 mb-2">
+                  Fast & Lightweight
                 </div>
-                <div className="text-gray-600">Projects Completed</div>
+                <div className="text-gray-600 text-sm">
+                  Optimized for real-world use.
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent-600 mb-2">
-                  50+
+                <div className="text-lg font-semibold text-accent-600 mb-2">
+                  Quietly Excellent
                 </div>
-                <div className="text-gray-600">Happy Clients</div>
+                <div className="text-gray-600 text-sm">
+                  No fluff. Just clean, modern work.
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent-600 mb-2">
-                  99%
+                <div className="text-lg font-semibold text-accent-600 mb-2">
+                  Human First
                 </div>
-                <div className="text-gray-600">Success Rate</div>
+                <div className="text-gray-600 text-sm">
+                  Got a problem? We'll find a solution.
+                </div>
               </div>
             </div>
           </div>

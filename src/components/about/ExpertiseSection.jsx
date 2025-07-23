@@ -1,9 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
-
-const { FiCode, FiTrendingUp } = FiIcons;
+import Link from "next/link";
 
 const ExpertiseSection = () => {
   const expertise = [
@@ -59,37 +56,35 @@ const ExpertiseSection = () => {
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Frontend</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>React & Next.js</li>
-                  <li>Vue.js & Nuxt.js</li>
-                  <li>TypeScript</li>
-                  <li>Tailwind CSS</li>
+                  <li><a href="https://nextjs.org" target='_blank'>Next.js</a></li>
+                  <li><a href="https://react.dev" target='_blank'>React</a></li>
+                  <li><a href="https://vite.dev" target="_blank">Vite</a></li>
+                  <li><a href="https://tailwindcss.com/" target="_blank">Tailwindcss</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Backend</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>Node.js & Express</li>
-                  <li>Python & Django</li>
-                  <li>PostgreSQL & MongoDB</li>
-                  <li>GraphQL & REST APIs</li>
+                  <li><a href="https://nodejs.org/" target="_blank">Node.js</a></li>
+                  <li><a href="https://nextjs.org" target='_blank'>Next.js</a></li>
+                  <li><a href="https://aws.amazon.com/what-is/sql/" target='_blank'>SQL / SQLite</a></li>
+                  <li><a href="https://supabase.com" target='_blank'>Supabase</a></li>
+                  <li><a href="https://firebase.google.com" target='_blank'>Firebase</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Cloud</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>AWS & Azure</li>
-                  <li>Docker & Kubernetes</li>
-                  <li>CI/CD Pipelines</li>
-                  <li>Serverless Functions</li>
+                  <li><a href="https://vercel.com/" target="_blank">Vercel</a></li>
+                  <li><a href="https://aws.amazon.com/about-aws/" target="_blank">AWS</a></li>
+                  <li><a href="https://azure.microsoft.com/en-us" target="_blank">Azure</a></li>
+                  <li><a href="https://www.ibm.com/think/topics/ci-cd-pipeline" target="_blank">CI/DC Pipelines</a></li>
                 </ul>
               </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Tools</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>Git & GitHub</li>
-                  <li>Jest & Cypress</li>
-                  <li>Figma & Adobe XD</li>
-                  <li>Jira & Slack</li>
+              <div className={`mt-auto`} >
+                <h4 className="font-semibold text-gray-900 mb-2"></h4>
+                <ul className="text-sm text-gray-600 space-y-1 ">
+                  <li>Don't see something you want? <br /><Link href="/contact" className={`text-accent-600 italic`} >Let us know</Link>, we love learning.</li>
                 </ul>
               </div>
             </div>

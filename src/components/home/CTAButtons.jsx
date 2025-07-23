@@ -13,15 +13,20 @@ export default function CTAButtons() {
             <SafeIcon name="ArrowRight" className="ml-2 h-5 w-5" />
           </>
         }
-        hoverLabel="Let’s Go →"
+        hoverLabel={
+          <>
+            Let’s Go
+            <SafeIcon name="ArrowRight" className="ml-2 h-5 w-5" />
+          </>
+        }
         frontClasses="bg-accent-600 text-white"
         hoverClasses="bg-accent-400 text-white"
       />
 
       <Flip3DButton
-        href="/portfolio"
-        frontLabel="View Portfolio"
-        hoverLabel="See the Work →"
+        href="/about"
+        frontLabel="Who Are We?"
+        hoverLabel="Explore"
         frontClasses="bg-white text-accent-600"
         hoverClasses="bg-accent-400 text-white"
         reverse={true}
