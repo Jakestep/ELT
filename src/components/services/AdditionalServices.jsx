@@ -44,13 +44,6 @@ const AdditionalServices = () => {
                 />
                 Security patches
               </li>
-              <li className="flex items-center">
-                <SafeIcon
-                  name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
-                />
-                24/7 support available
-              </li>
             </ul>
           </div>
           <div className="bg-white p-8 rounded-lg border border-gray-200">
@@ -89,45 +82,6 @@ const AdditionalServices = () => {
                   className="h-4 w-4 text-green-500 mr-2"
                 />
                 Security compliance
-              </li>
-            </ul>
-          </div>
-          <div className="bg-white p-8 rounded-lg border border-gray-200">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              Team Augmentation
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Skilled developers to extend your team capacity and accelerate
-              project delivery.
-            </p>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li className="flex items-center">
-                <SafeIcon
-                  name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
-                />
-                Vetted developers
-              </li>
-              <li className="flex items-center">
-                <SafeIcon
-                  name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
-                />
-                Flexible engagement
-              </li>
-              <li className="flex items-center">
-                <SafeIcon
-                  name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
-                />
-                Quick onboarding
-              </li>
-              <li className="flex items-center">
-                <SafeIcon
-                  name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
-                />
-                Cultural fit guarantee
               </li>
             </ul>
           </div>

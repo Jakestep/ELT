@@ -103,12 +103,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="flex items-center space-x-2 text-gray-900 hover:text-accent-600 transition-colors"
+            className="flex items-center space-x-2 text-primary-600 hover:text-accent-600 transition-colors"
           >
             <SafeIcon name="Code" className="h-8 w-8" />
             <div className="flex flex-col">
-              <span className="text-xl font-bold">EverLessTech</span>
-              <span className="text-xs text-gray-500">
+              <span className="text-xl font-bold ">EverLessTech</span>
+              <span className="text-xs text-gray-500 italic">
                 Less tech, more life
               </span>
             </div>

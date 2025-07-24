@@ -8,12 +8,6 @@ const {
   FiMail,
   FiPhone,
   FiMapPin,
-  FiSend,
-  FiCalendar,
-  FiMessageCircle,
-  FiLinkedin,
-  FiGithub,
-  FiTwitter,
 } = FiIcons;
 
 const ContactForm = () => {
@@ -62,16 +56,16 @@ const ContactForm = () => {
     {
       icon: FiMail,
       title: "Email",
-      content: "hello@everlesstech.com",
+      content: "everlesstech@gmail.com",
       description: "Send us an email anytime",
-      link: "mailto:hello@everlesstech.com",
+      link: "mailto:everlesstech@gmail.com",
     },
     {
       icon: FiPhone,
       title: "Phone",
-      content: "+1 (555) 123-4567",
-      description: "Mon-Fri from 9am to 6pm EST",
-      link: "tel:+15551234567",
+      content: "+1 (575) 520-4956",
+      description: "Mon-Fri from 7am to 4pm MDT",
+      link: "tel:+15755204956",
     },
     {
       icon: FiMapPin,
@@ -84,12 +78,10 @@ const ContactForm = () => {
 
   const projectTypes = [
     "Web Application",
-    "API Development",
     "SEO Services",
     "Custom Software",
     "Mobile App",
     "E-commerce Platform",
-    "Consulting",
     "Other",
   ];
 

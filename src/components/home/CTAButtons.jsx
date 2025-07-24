@@ -4,7 +4,7 @@ import Flip3DButton from "./general/Flip3DButton";
 
 export default function CTAButtons() {
   return (
-    <div className="flex flex-col sm:flex-row gap-12 items-center justify-center w-fit">
+    <div className="flex flex-col w-full sm:w-fit sm:flex-row gap-12 items-center justify-center">
       <Flip3DButton
         href="/contact"
         frontLabel={

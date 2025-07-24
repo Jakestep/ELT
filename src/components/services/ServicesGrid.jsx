@@ -22,32 +22,32 @@ const ServicesGrid = () => {
       description:
         "Modern, responsive web applications built with cutting-edge technologies",
       features: [
-        "React, Vue.js, and Angular applications",
+        "React and Next.js applications",
         "Progressive Web Apps (PWAs)",
         "Single Page Applications (SPAs)",
         "E-commerce platforms",
         "Content Management Systems",
         "Real-time applications with WebSockets",
       ],
-      technologies: ["React", "Next.js", "Vue.js", "TypeScript", "Node.js"],
+      technologies: ["React", "Next.js", "Node.js", "Supabase", "Firebase", "Express"],
       startingPrice: "$5,000",
     },
-    {
-      icon: FiServer,
-      title: "API Development & Integration",
-      description:
-        "Robust, scalable APIs that power your applications and connect your systems",
-      features: [
-        "RESTful API design and development",
-        "GraphQL APIs",
-        "Third-party API integrations",
-        "Microservices architecture",
-        "API documentation and testing",
-        "Authentication and authorization",
-      ],
-      technologies: ["Node.js", "Express", "GraphQL", "PostgreSQL", "MongoDB"],
-      startingPrice: "$3,000",
-    },
+    // {
+    //   icon: FiServer,
+    //   title: "API Development & Integration",
+    //   description:
+    //     "Robust, scalable APIs that power your applications and connect your systems",
+    //   features: [
+    //     "RESTful API design and development",
+    //     "GraphQL APIs",
+    //     "Third-party API integrations",
+    //     "Microservices architecture",
+    //     "API documentation and testing",
+    //     "Authentication and authorization",
+    //   ],
+    //   technologies: ["Node.js", "Express", "GraphQL", "PostgreSQL", "MongoDB", "Supabase", "Firebase"],
+    //   startingPrice: "$3,000",
+    // },
     {
       icon: FiSearch,
       title: "SEO Services",
@@ -83,24 +83,8 @@ const ServicesGrid = () => {
         "Integration platforms",
         "Legacy system modernization",
       ],
-      technologies: ["Python", "Django", "React", "PostgreSQL", "AWS"],
+      technologies: ["Tauri", "Electron", "React", "Next.js", "PostgreSQL", "AWS"],
       startingPrice: "$10,000",
-    },
-    {
-      icon: FiHeadphones,
-      title: "Technical Consulting",
-      description:
-        "Expert guidance to help you make informed technology decisions",
-      features: [
-        "Technology stack selection",
-        "Architecture design and review",
-        "Code audits and optimization",
-        "Performance optimization",
-        "Security assessments",
-        "Team training and mentoring",
-      ],
-      technologies: ["Various", "Based on", "Project", "Requirements"],
-      startingPrice: "$150/hour",
     },
   ];
 
@@ -114,7 +98,7 @@ const ServicesGrid = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow"
+              className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow lg:last:odd:col-span-2"
             >
               <div className="flex items-center mb-6">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-accent-100 rounded-lg mr-4">

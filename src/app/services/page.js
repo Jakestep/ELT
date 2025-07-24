@@ -1,7 +1,6 @@
 import ServicesHero from "../../components/services/ServicesHero";
 import ServicesGrid from "../../components/services/ServicesGrid";
 import ProcessSection from "../../components/services/ProcessSection";
-import AdditionalServices from "../../components/services/AdditionalServices";
 import CtaSection from "../../components/common/CtaSection";
 
 export const metadata = {
@@ -16,7 +15,7 @@ export default function Services() {
       <ServicesHero />
       <ServicesGrid />
       <ProcessSection />
-      <AdditionalServices />
+      {/* <AdditionalServices /> */}
       <CtaSection
         title="Ready to Get Started?"
         description="Let's discuss your project requirements and create a custom solution that fits your needs and budget."

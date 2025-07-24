@@ -27,7 +27,7 @@ const FaqSection = () => {
             </h3>
             <p className="text-gray-600">
               We specialize in modern web technologies including React, Next.js,
-              Node.js, Python, and cloud platforms like AWS and Azure. We choose
+              Node.js, tailwindcss, and cloud platforms like AWS and Azure. We choose
               the best tech stack for each project.
             </p>
           </div>
