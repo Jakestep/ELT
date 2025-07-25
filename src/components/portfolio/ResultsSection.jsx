@@ -1,9 +1,6 @@
 "use client";
-import { motion } from "motion/react";
-import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
+import SafeIcon from "../../common/SafeIcon";
 
-const { FiTrendingUp, FiUsers, FiZap } = FiIcons;
 
 const ResultsSection = () => {
   return (

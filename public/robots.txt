@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://everlesstech.com
+
+# Sitemaps
+Sitemap: https://everlesstech.com/sitemap.xml

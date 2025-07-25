@@ -1,4 +1,4 @@
-const { default: SafeIcon } = require("../common/SafeIcon");
+const { default: SafeIcon } = require("../../common/SafeIcon");
 
 const StoryComponent = ({ icon, title, text }) => (
   <>

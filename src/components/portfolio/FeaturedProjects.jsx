@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "motion/react";
-import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
+import SafeIcon from "../../common/SafeIcon";
 
-const { FiExternalLink, FiGithub } = FiIcons;
 
 const FeaturedProjects = () => {
   const featuredProjects = [
@@ -64,7 +62,7 @@ const FeaturedProjects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-background rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img

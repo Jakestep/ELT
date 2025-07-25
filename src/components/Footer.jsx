@@ -1,9 +1,7 @@
 import Link from "next/link";
-import * as FiIcons from "react-icons/fi";
-import SafeIcon from "./common/SafeIcon";
-
-const { FiCode, FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub, FiTwitter } =
-  FiIcons;
+import SafeIcon from "../common/SafeIcon";
+import ELTLogo from "@/common/ELTLogo";
+import Socials from "@/common/Socials";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,10 +13,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <SafeIcon
-                name="Code"
-                className="h-8 w-8 text-accent-400"
-              ></SafeIcon>
+              <ELTLogo
+                className={`h-16 fill-white stroke-white`} 
+              />
               <div className="flex flex-col">
                 <span className="text-xl font-bold">EverLessTech</span>
                 <span className="text-xs text-gray-400">
@@ -30,29 +27,8 @@ const Footer = () => {
               Professional software development and SEO services focused on
               quality, long-term value, and client success.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-accent-400 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <SafeIcon name="Linkedin" className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-accent-400 transition-colors"
-                aria-label="GitHub"
-              >
-                <SafeIcon name="Github" className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-accent-400 transition-colors"
-                aria-label="Twitter"
-              >
-                <SafeIcon name="Twitter" className="h-5 w-5" />
-              </a>
-            </div>
+
+            <Socials />
           </div>
 
           {/* Services */}
@@ -67,14 +43,14 @@ const Footer = () => {
                   Web Applications
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/services"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   API Development
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/services"
@@ -114,7 +90,7 @@ const Footer = () => {
                   About
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/portfolio"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -129,7 +105,7 @@ const Footer = () => {
                 >
                   Blog
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/contact"
@@ -145,13 +121,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-sm">
-              <div className="flex items-center space-x-2">
+              <a className="flex items-center space-x-2" href="mailto:jake@everlesstech.com">
                 <SafeIcon name="Mail" className="h-4 w-4 text-gray-400" />
-                <span className="text-gray-400">hello@everlesstech.com</span>
-              </div>
+                <span className="text-gray-400">jake@everlesstech.com</span>
+              </a>
               <div className="flex items-center space-x-2">
                 <SafeIcon name="Phone" className="h-4 w-4 text-gray-400" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+1 (575) 520-4956</span>
               </div>
               <div className="flex items-center space-x-2">
                 <SafeIcon name="MapPin" className="h-4 w-4 text-gray-400" />

@@ -9,7 +9,9 @@ const SafeIcon = ({ children, name, ...props }) => {
   } catch (e) {
     IconComponent = null;
   }
-
+  if (!IconComponent) {
+    console.log("could not find icon: " + `Fi${name}`)
+  }
   return IconComponent ? (
     React.createElement(IconComponent, props)
   ) : (

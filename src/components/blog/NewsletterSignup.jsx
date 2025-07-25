@@ -51,7 +51,7 @@ const NewsletterSignup = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-white text-accent-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors disabled:bg-gray-200 disabled:text-accent-400"
+                className="bg-background text-accent-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors disabled:bg-gray-200 disabled:text-accent-400"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
@@ -86,7 +86,7 @@ const NewsletterSignup = () => {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white text-accent-600 px-6 py-4 rounded-lg font-medium"
+              className="bg-background text-accent-600 px-6 py-4 rounded-lg font-medium"
             >
               Thanks for subscribing! Check your inbox soon.
             </motion.div>

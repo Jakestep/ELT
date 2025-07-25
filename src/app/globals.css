@@ -24,6 +24,8 @@
   --glaucous: hsla(233, 31%, 59%, 1);
   --mountbatten-pink: hsla(339, 12%, 54%, 1);
 
+  --main-background: url("/blur-jason-pofahl-YU82HZASi6E-unsplash.webp");
+  --main-background-2: url("/blur-jason-pofahl-YU82HZASi6E-unsplash-0.5x.webp");
 }
 
 @theme inline {
@@ -60,12 +62,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer utilities {
+  .text-shadow-thistle {
+    text-shadow: 0 0 3px var(--thistle);
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --text: white;
   }
-}
+} */
 
 body {
   background: var(--background);

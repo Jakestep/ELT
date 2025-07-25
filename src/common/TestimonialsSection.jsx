@@ -3,8 +3,6 @@ import { motion } from "motion/react";
 import * as FiIcons from "react-icons/fi";
 import SafeIcon from "../components/common/SafeIcon";
 
-const { FiStar } = FiIcons;
-
 // This component is created but not currently used in the site
 // It can be easily added back when you have real testimonials to display
 
@@ -14,7 +12,7 @@ const TestimonialsSection = ({ testimonials }) => {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

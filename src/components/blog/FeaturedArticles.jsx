@@ -2,9 +2,7 @@
 import { motion } from "motion/react";
 import { format } from "date-fns";
 import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
-
-const { FiCalendar, FiUser, FiArrowRight } = FiIcons;
+import SafeIcon from "../../common/SafeIcon";
 
 const FeaturedArticles = () => {
   const featuredPosts = [
@@ -97,7 +95,7 @@ const FeaturedArticles = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-background rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img

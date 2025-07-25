@@ -1,7 +1,7 @@
 import HeroSection from "../components/home/HeroSection";
 import FeaturesSection from "../components/home/FeaturesSection";
 import ServicesPreview from "../components/home/ServicesPreview";
-import CtaSection from "../components/common/CtaSection";
+import CtaSection from "../common/CtaSection";
 
 export default function Home() {
   return (

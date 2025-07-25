@@ -1,6 +1,6 @@
 "use client";
 
-import SafeIcon from "@/components/common/SafeIcon";
+import SafeIcon from "@/common/SafeIcon";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";

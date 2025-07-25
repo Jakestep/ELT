@@ -5,13 +5,69 @@ import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// app/layout.js
 export const metadata = {
-  title: "EverLessTech | Professional Software Development & SEO Services",
+  metadataBase: new URL("https://everlesstech.com"),
+  title: {
+    default: "EverLessTech | Less tech, more life.",
+    template: "%s | EverLessTech",
+  },
   description:
-    "Quality-focused software development and SEO services with long-term client value. Less tech, more life.",
-  keywords:
-    "software development, web development, API development, SEO services, custom software, software consulting",
+    "We build simple, fast, high-quality web apps and software. EverLessTech means Less tech, more life.",
+  keywords: [
+    "web development",
+    "custom software",
+    "next.js",
+    "SEO",
+    "EverLessTech",
+    "web design",
+    "app development",
+    "UX",
+    "React",
+  ],
+  openGraph: {
+    title: "EverLessTech",
+    description:
+      "We build fast, high-quality software — so you can focus on what matters.",
+    url: "https://everlesstech.com",
+    siteName: "EverLessTech",
+    images: [
+      {
+        url: "/og/everlesstech-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EverLessTech branding card",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EverLessTech",
+    description:
+      "Modern web development & digital consulting with clarity and speed.",
+    images: ["/og/everlesstech-default.jpg"],
+    creator: "@everlesstech",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.manifest",
 };
+
 
 export default function RootLayout({ children }) {
   return (
@@ -21,9 +77,11 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={inter.className}>
-        <div className="min-h-screen bg-white flex flex-col">
-          <Header />
-          <main className="flex-grow mt-6 md:mt-0">{children}</main>
+        <div className="min-h-screen bg-background flex flex-col [--header-height:_calc(var(--spacing)_*_16)]">
+          <Header
+            className={`h-(--header-height) bg-background sticky z-[50]`} 
+          />
+          <main className="flex-grow ">{children}</main>
           <Footer />
         </div>
       </body>

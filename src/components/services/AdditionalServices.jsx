@@ -1,5 +1,5 @@
 import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
+import SafeIcon from "../../common/SafeIcon";
 
 const AdditionalServices = () => {
   return (
@@ -14,7 +14,7 @@ const AdditionalServices = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-lg border border-gray-200">
+          <div className="bg-background p-8 rounded-lg border border-gray-200">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Maintenance & Support
             </h3>
@@ -46,7 +46,7 @@ const AdditionalServices = () => {
               </li>
             </ul>
           </div>
-          <div className="bg-white p-8 rounded-lg border border-gray-200">
+          <div className="bg-background p-8 rounded-lg border border-gray-200">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Cloud Migration
             </h3>

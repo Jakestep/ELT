@@ -1,32 +1,29 @@
 "use client";
 import { motion } from "motion/react";
-import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
-
-const { FiTarget, FiHeart, FiUsers, FiAward } = FiIcons;
+import SafeIcon from "../../common/SafeIcon";
 
 const ValuesSection = () => {
   const values = [
     {
-      icon: FiTarget,
+      icon: 'Target',
       title: "Quality First",
       description:
         "Every line of code is written with precision, tested thoroughly, and optimized for performance.",
     },
     {
-      icon: FiHeart,
+      icon: 'Heart',
       title: "Client Success",
       description:
         "Your success is our success. We're committed to delivering solutions that drive real business value.",
     },
     {
-      icon: FiUsers,
+      icon: 'Users',
       title: "Long-term Partnership",
       description:
         "We build lasting relationships, providing ongoing support and evolution of your software solutions.",
     },
     {
-      icon: FiAward,
+      icon: 'Award',
       title: "Excellence",
       description:
         "We strive for excellence in every project, from initial concept to final deployment and beyond.",
@@ -52,14 +49,12 @@ const ValuesSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
+              className="bg-background p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-accent-100 rounded-lg mb-4">
                 <SafeIcon
                   name={
-                    value.icon.name.substring(
-                      2,
-                    ) /* TODO: check me, might not work, check what value.icon.name is */
+                    value.icon
                   }
                   className="h-8 w-8 text-accent-600"
                 />

@@ -2,10 +2,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { format } from "date-fns";
-import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
-
-const { FiCalendar, FiUser, FiArrowRight, FiSearch, FiTag } = FiIcons;
+import SafeIcon from "../../common/SafeIcon";
 
 const AllArticles = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -179,7 +176,7 @@ const AllArticles = () => {
               className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                 selectedCategory === category.id
                   ? "bg-accent-600 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
+                  : "bg-background text-gray-700 hover:bg-gray-100"
               }`}
             >
               {category.name}
@@ -195,7 +192,7 @@ const AllArticles = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+              className="bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img

@@ -1,9 +1,7 @@
 "use client";
 import Link from "next/link";
 import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
-
-const { FiCheckCircle, FiArrowRight } = FiIcons;
+import SafeIcon from "../../common/SafeIcon";
 
 const ServicesPreview = () => {
   return (
@@ -19,7 +17,7 @@ const ServicesPreview = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-background p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Web Applications
             </h3>
@@ -51,7 +49,7 @@ const ServicesPreview = () => {
               </li>
             </ul>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-background p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               SEO Services
             </h3>
@@ -83,7 +81,7 @@ const ServicesPreview = () => {
               </li>
             </ul>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-background p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Custom Solutions
             </h3>

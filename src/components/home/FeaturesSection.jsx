@@ -1,32 +1,30 @@
 "use client";
 import { motion } from "motion/react";
 import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
-
-const { FiCode, FiZap, FiShield, FiTrendingUp } = FiIcons;
+import SafeIcon from "../../common/SafeIcon";
 
 const FeaturesSection = () => {
   const features = [
     {
-      icon: FiCode,
+      icon: 'Code',
       title: "Custom Development",
       description:
         "Tailored software solutions built to your exact specifications and business needs.",
     },
     {
-      icon: FiZap,
+      icon: 'Zap',
       title: "Performance Focused",
       description:
         "Optimized applications and websites that deliver exceptional speed and user experience.",
     },
     {
-      icon: FiShield,
+      icon: 'Shield',
       title: "Security First",
       description:
         "Enterprise-grade security practices built into every line of code.",
     },
     {
-      icon: FiTrendingUp,
+      icon: 'TrendingUp',
       title: "Scalable Solutions",
       description:
         "Architecture designed to grow with your business and adapt to changing needs.",
@@ -34,7 +32,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -56,7 +54,7 @@ const FeaturesSection = () => {
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-accent-100 rounded-lg mb-4">
                 <SafeIcon
-                  name={feature.icon.name.substring(2) /**TODO: check me too */}
+                  name={feature.icon}
                   className="h-8 w-8 text-accent-600"
                 />
               </div>

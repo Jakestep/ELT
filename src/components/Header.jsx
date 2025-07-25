@@ -1,11 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import SafeIcon from "@/components/common/SafeIcon";
+import SafeIcon from "@/common/SafeIcon";
+import ELTLogo from "../common/ELTLogo";
 
-const Header = () => {
+const Header = ({ className  }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
@@ -94,18 +95,24 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-100">
+    <header className={`top-0 left-0 right-0 shadow-sm border-b border-gray-100 ${className}`}>
       <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`fixed top-0 left-0 w-screen h-screen bg-transparent ${!isMenuOpen && 'hidden'}`} />
       <nav
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-inherit"
         aria-label="Main navigation"
       >
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="flex items-center space-x-2 text-primary-600 hover:text-accent-600 transition-colors"
+            className="flex items-center h-full space-x-2 text-(--title-color) transition-colors [--title-color:_var(--color-primary-600)] hover:[--title-color:_var(--color-accent-600)]"
           >
-            <SafeIcon name="Code" className="h-8 w-8" />
+            {/* <SafeIcon name="Code" className="h-8 w-8" /> */}
+            <div className={`h-full py-2 flex items-center justify-center`} >
+              <ELTLogo
+                height={'100%'}
+                className={`fill-(--title-color) stroke-(--title-color) transition-colors `}
+              />
+            </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold ">EverLessTech</span>
               <span className="text-xs text-gray-500 italic">
@@ -171,7 +178,7 @@ const Header = () => {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="md:hidden  box-border overflow-hidden"
+              className="md:hidden  box-border overflow-hidden bg-inherit"
             >
               <motion.div className="flex flex-col space-y-1">
                 {navigation.map((item) => (

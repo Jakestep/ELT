@@ -1,23 +1,12 @@
 "use client";
 import Link from "next/link";
 import { motion } from "motion/react";
-import * as FiIcons from "react-icons/fi";
-import SafeIcon from "../common/SafeIcon";
-
-const {
-  FiGlobe,
-  FiServer,
-  FiSettings,
-  FiHeadphones,
-  FiCheckCircle,
-  FiArrowRight,
-  FiSearch,
-} = FiIcons;
+import SafeIcon from "../../common/SafeIcon";
 
 const ServicesGrid = () => {
   const services = [
     {
-      icon: FiGlobe,
+      icon: 'Globe',
       title: "Web Application Development",
       description:
         "Modern, responsive web applications built with cutting-edge technologies",
@@ -33,7 +22,7 @@ const ServicesGrid = () => {
       startingPrice: "$5,000",
     },
     // {
-    //   icon: FiServer,
+    //   icon: 'Server',
     //   title: "API Development & Integration",
     //   description:
     //     "Robust, scalable APIs that power your applications and connect your systems",
@@ -49,7 +38,7 @@ const ServicesGrid = () => {
     //   startingPrice: "$3,000",
     // },
     {
-      icon: FiSearch,
+      icon: 'Search',
       title: "SEO Services",
       description:
         "Comprehensive search engine optimization to improve visibility and drive organic traffic",
@@ -71,7 +60,7 @@ const ServicesGrid = () => {
       startingPrice: "$1,500",
     },
     {
-      icon: FiSettings,
+      icon: 'Settings',
       title: "Custom Software Solutions",
       description:
         "Tailored software applications designed to solve your unique business challenges",
@@ -86,6 +75,30 @@ const ServicesGrid = () => {
       technologies: ["Tauri", "Electron", "React", "Next.js", "PostgreSQL", "AWS"],
       startingPrice: "$10,000",
     },
+    {
+      icon: 'Headphones',
+      title: "Consulting",
+      description:
+        "A free strategy session to explore how we can simplify your tools, automate what's tedious, and help you focus on what matters.",
+      features: [
+        "Walk through your current workflow or tool stack",
+        "Spot areas of friction, repetition, or confusion",
+        "Explore simpler, faster alternatives to complex systems",
+        "Discuss automation, integrations, or custom tools",
+        "Outline next steps based on your goals and constraints",
+        "See if you're a good fit for our calm, high-quality approach",
+      ],
+      technologies: [
+        "Talking, mostly",
+        "Maybe some scribbling",
+        "A notebook for sure",
+        "No code, just clarity",
+        "Science and stuff",
+        "A phone",
+      ],
+      price: "Free"
+    }
+    
   ];
 
   return (
@@ -98,13 +111,13 @@ const ServicesGrid = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow lg:last:odd:col-span-2"
+              className="bg-background border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow lg:last:odd:col-span-2"
             >
               <div className="flex items-center mb-6">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-accent-100 rounded-lg mr-4">
                   <SafeIcon
                     name={
-                      service.icon.name.substring(2) /**TODO: check me too */
+                      service.icon
                     }
                     className="h-6 w-6 text-accent-600"
                   />
@@ -114,7 +127,12 @@ const ServicesGrid = () => {
                     {service.title}
                   </h3>
                   <p className="text-accent-600 font-medium">
-                    Starting at {service.startingPrice}
+                    {service.startingPrice ?
+                    'Starting at ' + service.startingPrice
+                      :
+                      service.price ? service.price
+                      : ''
+                    }
                   </p>
                 </div>
               </div>
@@ -145,7 +163,7 @@ const ServicesGrid = () => {
                   {service.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                      className="bg-text/10 text-[color:_color-mix(in_srgb,_var(--background),_80%,_var(--text))] px-3 py-1 rounded-full text-sm"
                     >
                       {tech}
                     </span>
