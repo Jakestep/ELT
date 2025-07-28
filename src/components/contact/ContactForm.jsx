@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import SafeIcon from "../../common/SafeIcon";
 import { submitContactForm } from "./submitContactForm";
@@ -11,6 +11,16 @@ const initialState = { success: null, error: null };
 const ContactForm = () => {
   const [state, formAction] = useActionState(submitContactForm, initialState);
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  useEffect(() => {
+    if (state.success) {
+      setIsModalOpen(true);
+    }
+  
+    return () => {
+    }
+  }, [state])
+  
   
   const contactInfo = [
     {

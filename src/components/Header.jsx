@@ -96,7 +96,7 @@ const Header = ({ className  }) => {
 
   return (
     <header className={`top-0 left-0 right-0 shadow-sm border-b border-gray-100 ${className}`}>
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`fixed top-0 left-0 w-screen h-screen bg-transparent ${!isMenuOpen && 'hidden'}`} />
+      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`fixed top-0 left-0 w-screen h-screen z-[-1] ${!isMenuOpen && 'hidden'}`} />
       <nav
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-inherit"
         aria-label="Main navigation"
@@ -182,18 +182,17 @@ const Header = ({ className  }) => {
             >
               <motion.div className="flex flex-col space-y-1">
                 {navigation.map((item) => (
-                  <motion.div key={item.name} variants={itemVariants}>
+                  <motion.div key={item.name} variants={itemVariants} className={`w-full relative rounded-lg text-base font-medium transition-colors block px-4 py-2 ${
+                    isActive(item.href)
+                      ? "text-accent-600 bg-accent-50"
+                      : "text-gray-700 hover:text-accent-600 hover:bg-gray-50"
+                    }`} >
                     <Link
                       href={item.href}
-                      className={`text-base font-medium transition-colors block px-4 py-2 rounded-lg ${
-                        isActive(item.href)
-                          ? "text-accent-600 bg-accent-50"
-                          : "text-gray-700 hover:text-accent-600 hover:bg-gray-50"
-                      }`}
+                      className={`text-base font-medium absolute inset-0 transition-colors block w-full px-4 py-2 rounded-lg`}
                       onClick={() => setIsMenuOpen(false)}
-                    >
+                     />
                       {item.name}
-                    </Link>
                   </motion.div>
                 ))}
                 <motion.div variants={itemVariants}>

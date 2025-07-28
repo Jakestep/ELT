@@ -1,6 +1,7 @@
 'use server';
 
 import { Resend } from 'resend';
+import ClientEmail from './ClientEmail';
 
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 
@@ -14,11 +15,20 @@ export async function submitContactForm(_, formData) {
   const message = formData.get('message');
 
   try {
+
+    await resend.emails.send({
+      from: 'jake@everlesstech.com',
+      to: email,
+      subject: `Thanks for reaching out!`,
+      replyTo: 'jake@everlesstech.com',
+      react: <ClientEmail name={name} />
+    })
+
     await resend.emails.send({
       from: 'contact@everlesstech.com', // must be verified
       to: 'jake@everlesstech.com',
       subject: `New Contact: ${name} (${projectType})`,
-      reply_to: email,
+      replyTo: email,
       text: `
 New contact form submission:
 
