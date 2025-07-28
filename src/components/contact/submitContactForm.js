@@ -17,7 +17,7 @@ export async function submitContactForm(_, formData) {
   try {
 
     await resend.emails.send({
-      from: 'jake@everlesstech.com',
+      from: 'Jake Estep <jake@everlesstech.com>',
       to: email,
       subject: `Thanks for reaching out!`,
       replyTo: 'jake@everlesstech.com',
@@ -25,7 +25,7 @@ export async function submitContactForm(_, formData) {
     })
 
     await resend.emails.send({
-      from: 'contact@everlesstech.com', // must be verified
+      from: 'ELT Contact <contact@everlesstech.com>', // must be verified
       to: 'jake@everlesstech.com',
       subject: `New Contact: ${name} (${projectType})`,
       replyTo: email,
