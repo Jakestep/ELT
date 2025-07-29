@@ -3,7 +3,6 @@
 import { Resend } from 'resend';
 import ClientEmail from './ClientEmail';
 
-const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 
 export async function submitContactForm(_, formData) {
   const name = formData.get('name');
@@ -13,8 +12,9 @@ export async function submitContactForm(_, formData) {
   const budget = formData.get('budget');
   const timeline = formData.get('timeline');
   const message = formData.get('message');
-
+  
   try {
+    const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 
     await resend.emails.send({
       from: 'Jake Estep <jake@everlesstech.com>',
@@ -47,6 +47,6 @@ ${message}
     return { success: true };
   } catch (error) {
     console.error(error);
-    return { success: false, error: 'Failed to send message. Please try again.' };
+    return { success: false, error: <span>Failed to send message. Please try again, or email <a href="mailto:jake@everlesstech.com">jake@everlesstech.com </a>for assistance</span>};
   }
 }

@@ -13,7 +13,7 @@ const ContactForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
-    if (state.success) {
+    if (state.success != null) {
       setIsModalOpen(true);
     }
   
