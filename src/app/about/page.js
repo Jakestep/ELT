@@ -59,8 +59,8 @@ export default function About() {
         description="Let's discuss how our expertise can help bring your software vision to life."
         primaryButtonText="Start a Conversation"
         primaryButtonLink="/contact"
-        secondaryButtonText="View Our Work"
-        secondaryButtonLink="/portfolio"
+        secondaryButtonText="Who Are We"
+        secondaryButtonLink="/about"
       />
     </>
   );

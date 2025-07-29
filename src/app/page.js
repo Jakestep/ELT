@@ -14,8 +14,8 @@ export default function Home() {
         description="Let's discuss how we can help you build exceptional software solutions that drive your business forward."
         primaryButtonText="Get Started Today"
         primaryButtonLink="/contact"
-        secondaryButtonText="View Our Work"
-        secondaryButtonLink="/portfolio"
+        secondaryButtonText="Who Are We"
+        secondaryButtonLink="/about"
       />
     </>
   );

@@ -62,8 +62,8 @@ export default function Services() {
         description="Let's discuss your project requirements and create a custom solution that fits your needs and budget."
         primaryButtonText="Request a Quote"
         primaryButtonLink="/contact"
-        secondaryButtonText="View Our Work"
-        secondaryButtonLink="/portfolio"
+        secondaryButtonText="Who Are We"
+        secondaryButtonLink="/about"
       />
     </>
   );

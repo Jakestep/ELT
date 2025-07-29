@@ -17,7 +17,7 @@ const ContactHero = () => {
               className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             >
               Let's Build Something{" "}
-              <span className="text-accent-600">Amazing</span>
+              <span className="text-accent-600 text-shadow-[5px_5px_3px_var(--color-accent-800)]">Amazing</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

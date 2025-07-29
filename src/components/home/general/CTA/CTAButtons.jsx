@@ -1,5 +1,5 @@
+
 import React from "react";
-import { useIsHoverCapable } from "@/app/hooks/useIsHoverCapable";
 import CTAHover from "./CTAHover";
 import CTANoHover from "./CTANoHover";
 

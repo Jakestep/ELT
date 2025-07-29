@@ -47,7 +47,8 @@ const ContactForm = () => {
   ];
 
   const projectTypes = [
-    "Web Application",
+    "Website",
+    "Consulting",
     "SEO Services",
     "Custom Software",
     "Mobile App",
