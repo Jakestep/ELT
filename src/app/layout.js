@@ -80,10 +80,10 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={inter.className}>
-        <div className="min-h-screen bg-background flex flex-col [--header-height:_calc(var(--spacing)_*_16)]">
-          <Header
-            className={`h-(--header-height) bg-background sticky z-[50]`} 
-          />
+        <div className="min-h-screen  flex flex-col [--header-height:_calc(var(--spacing)_*_16)]">
+          {/* <Header
+            className={`h-(--header-height) sticky z-[50]`} 
+          /> */}
           <main className="flex-grow ">{children}</main>
           <Footer />
         </div>

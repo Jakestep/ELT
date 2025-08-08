@@ -5,7 +5,6 @@ import $ from "jquery";
 import { usePathname } from "next/navigation";
 
 const RippleBackground = ({ children, className, background }) => {
-  console.log(background);
   if (!background) {
     background = {backgroundImage: 'var(--main-background)'}
   }
@@ -112,8 +111,21 @@ const RippleBackground = ({ children, className, background }) => {
       }
     };
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
 
+    function handleBlur() {
+      $el.ripples("pause");
+      clearInterval(intervalId);
+    }
+
+    function handleFocus() {
+      $el.ripples("play");
+      intervalId = setInterval(drop, isMobile ? 5000 : 7500);
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("blur", handleBlur);
+    window.addEventListener("focus", handleFocus);
+    
 
     return () => {
       if ($el.data("ripples")) {
