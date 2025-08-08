@@ -13,6 +13,7 @@ export default function Flip3DButton({
   frontClasses,
   hoverClasses,
   reverse = false,
+  ...props
 }) {
 
     if (reverse) {
@@ -20,6 +21,7 @@ export default function Flip3DButton({
           <Link
             href={href}
             className="text-nowrap relative mx-auto gap-2 px-8 py-4 w-(--btn-width) group h-(--btn-height) overflow-clip [--btn-height:_calc(var(--spacing)_*_14)] [--btn-width:_calc(var(--spacing)_*_50)]"
+            {...props}
           >
             {/* First face */}
             <div

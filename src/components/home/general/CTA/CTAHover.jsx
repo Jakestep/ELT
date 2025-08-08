@@ -6,16 +6,16 @@ const CTAHover = () => {
   return (
     <div className={`flex flex-col w-full sm:w-fit sm:flex-row gap-12 items-center justify-center`} >
         <Flip3DButton
-            href="/contact"
+            href="/get-started"
             frontLabel={
                 <>
-                Start Your Project
+                Count me in
                 <SafeIcon name="ArrowRight" className="ml-2 h-5 w-5" />
                 </>
             }
             hoverLabel={
                 <>
-                Let’s Go
+                Let's dance
                 <SafeIcon name="ArrowRight" className="ml-2 h-5 w-5" />
                 </>
             }
@@ -23,9 +23,10 @@ const CTAHover = () => {
             hoverClasses="bg-accent-400 text-white"
         />
         <Flip3DButton
-            href="/about"
-            frontLabel="Who Are We?"
-            hoverLabel="Explore"
+            href="https://google.com"
+            frontLabel="I like broken software"
+            hoverLabel="Wasting time is fun"
+            target="_blank"
             frontClasses="bg-background text-accent-600"
             hoverClasses="bg-accent-400 text-white"
             reverse={true}
