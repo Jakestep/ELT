@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const WINDOW_MS = 36 * 60 * 60 * 1000;
 
 function readOfferCookie(headers) {
@@ -13,6 +13,7 @@ function readOfferCookie(headers) {
 }
 
 export async function POST(req) {
+  return NextResponse.json({ url: `${process.env.NEXT_SITE_URL}/audit`})
   const body = await req.json().catch(() => ({}));
   const priceStandard = process.env.STRIPE_PRICE_297;
   const priceDiscount = process.env.STRIPE_PRICE_197;

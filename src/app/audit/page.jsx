@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 const OFFER_KEY = "elt_audit_offer_started";       // localStorage key
@@ -13,7 +12,6 @@ const CHECKOUT_197 = "https://buy.stripe.com/test_197"; // TODO:
 const CHECKOUT_297 = "https://buy.stripe.com/test_297"; // TODO:
 
 export default function AuditPage() {
-  const sp = useSearchParams();
   const [now, setNow] = useState(() => Date.now());
   const [offerStart, setOfferStart] = useState(null);
 
