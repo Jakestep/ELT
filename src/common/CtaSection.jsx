@@ -9,24 +9,24 @@ const CtaSection = ({
   secondaryButtonLink,
 }) => {
   return (
-    <section className="py-20 bg-accent-600">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    <section className="bg-accent-600 py-20">
+      <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
           {title}
         </h2>
-        <p className="text-xl text-accent-100 mb-8 max-w-3xl mx-auto">
+        <p className="text-accent-100 mx-auto mb-8 max-w-3xl text-xl">
           {description}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link
             href={primaryButtonLink}
-            className="bg-background text-accent-600 px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-800 hover:text-white transition-colors duration-250 "
+            className="bg-background text-accent-600 rounded-lg px-8 py-4 text-lg font-medium transition-colors hover:bg-gray-100"
           >
             {primaryButtonText}
           </Link>
           <Link
             href={secondaryButtonLink}
-            className="border border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-700 transition-colors"
+            className="hover:bg-accent-700 rounded-lg border border-white px-8 py-4 text-lg font-medium text-white transition-colors"
           >
             {secondaryButtonText}
           </Link>

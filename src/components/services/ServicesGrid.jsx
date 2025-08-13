@@ -6,7 +6,7 @@ import SafeIcon from "../../common/SafeIcon";
 const ServicesGrid = () => {
   const services = [
     {
-      icon: 'Globe',
+      icon: "Globe",
       title: "Web Application Development",
       description:
         "Modern, responsive web applications built with cutting-edge technologies",
@@ -18,7 +18,14 @@ const ServicesGrid = () => {
         "Content Management Systems",
         "Real-time applications with WebSockets",
       ],
-      technologies: ["React", "Next.js", "Node.js", "Supabase", "Firebase", "Express"],
+      technologies: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Supabase",
+        "Firebase",
+        "Express",
+      ],
       startingPrice: "$5,000",
     },
     // {
@@ -38,7 +45,7 @@ const ServicesGrid = () => {
     //   startingPrice: "$3,000",
     // },
     {
-      icon: 'Search',
+      icon: "Search",
       title: "SEO Services",
       description:
         "Comprehensive search engine optimization to improve visibility and drive organic traffic",
@@ -60,7 +67,7 @@ const ServicesGrid = () => {
       startingPrice: "$1,500",
     },
     {
-      icon: 'Settings',
+      icon: "Settings",
       title: "Custom Software Solutions",
       description:
         "Tailored software applications designed to solve your unique business challenges",
@@ -72,11 +79,18 @@ const ServicesGrid = () => {
         "Integration platforms",
         "Legacy system modernization",
       ],
-      technologies: ["Tauri", "Electron", "React", "Next.js", "PostgreSQL", "AWS"],
+      technologies: [
+        "Tauri",
+        "Electron",
+        "React",
+        "Next.js",
+        "PostgreSQL",
+        "AWS",
+      ],
       startingPrice: "$10,000",
     },
     {
-      icon: 'Headphones',
+      icon: "Headphones",
       title: "Consulting",
       description:
         "A free strategy session to explore how we can simplify your tools, automate what's tedious, and help you focus on what matters.",
@@ -96,30 +110,27 @@ const ServicesGrid = () => {
         "Science and stuff",
         "A phone",
       ],
-      price: "Free"
-    }
-    
+      price: "Free",
+    },
   ];
 
   return (
     <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-background border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow lg:last:odd:col-span-2"
+              className="bg-background rounded-lg border border-gray-200 p-8 transition-shadow hover:shadow-lg lg:last:odd:col-span-2"
             >
-              <div className="flex items-center mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-accent-100 rounded-lg mr-4">
+              <div className="mb-6 flex items-center">
+                <div className="bg-accent-100 mr-4 inline-flex h-12 w-12 items-center justify-center rounded-lg">
                   <SafeIcon
-                    name={
-                      service.icon
-                    }
-                    className="h-6 w-6 text-accent-600"
+                    name={service.icon}
+                    className="text-accent-600 h-6 w-6"
                   />
                 </div>
                 <div>
@@ -127,19 +138,18 @@ const ServicesGrid = () => {
                     {service.title}
                   </h3>
                   <p className="text-accent-600 font-medium">
-                    {service.startingPrice ?
-                    'Starting at ' + service.startingPrice
-                      :
-                      service.price ? service.price
-                      : ''
-                    }
+                    {service.startingPrice
+                      ? "Starting at " + service.startingPrice
+                      : service.price
+                        ? service.price
+                        : ""}
                   </p>
                 </div>
               </div>
-              <p className="text-gray-600 mb-6">{service.description}</p>
+              <p className="mb-6 text-gray-600">{service.description}</p>
 
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-3">
+                <h4 className="mb-3 font-semibold text-gray-900">
                   What's Included:
                 </h4>
                 <ul className="space-y-2">
@@ -147,7 +157,7 @@ const ServicesGrid = () => {
                     <li key={featureIndex} className="flex items-start">
                       <SafeIcon
                         name="CheckCircle"
-                        className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                        className="mt-0.5 mr-2 h-5 w-5 flex-shrink-0 text-green-500"
                       />
                       <span className="text-gray-600">{feature}</span>
                     </li>
@@ -156,14 +166,14 @@ const ServicesGrid = () => {
               </div>
 
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-3">
+                <h4 className="mb-3 font-semibold text-gray-900">
                   Technologies:
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {service.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="bg-text/10 text-[color:_color-mix(in_srgb,_var(--background),_80%,_var(--text))] px-3 py-1 rounded-full text-sm"
+                      className="bg-text/10 rounded-full px-3 py-1 text-sm text-[color:_color-mix(in_srgb,_var(--background),_80%,_var(--text))]"
                     >
                       {tech}
                     </span>
@@ -173,7 +183,7 @@ const ServicesGrid = () => {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center text-accent-600 hover:text-accent-700 font-medium"
+                className="text-accent-600 hover:text-accent-700 inline-flex items-center font-medium"
               >
                 Get Started
                 <SafeIcon name="ArrowRight" className="ml-1 h-4 w-4" />

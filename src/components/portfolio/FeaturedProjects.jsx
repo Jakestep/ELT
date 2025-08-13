@@ -2,7 +2,6 @@
 import { motion } from "motion/react";
 import SafeIcon from "../../common/SafeIcon";
 
-
 const FeaturedProjects = () => {
   const featuredProjects = [
     {
@@ -45,40 +44,40 @@ const FeaturedProjects = () => {
 
   return (
     <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Highlighting our most impactful work with measurable results and
             client success stories.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-background rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-background overflow-hidden rounded-lg shadow-lg transition-shadow hover:shadow-xl"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-64 object-cover"
+                  className="h-64 w-full object-cover"
                 />
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="mb-3 text-2xl font-bold text-gray-900">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-6">{project.description}</p>
-                <div className="grid grid-cols-3 gap-4 mb-6">
+                <p className="mb-6 text-gray-600">{project.description}</p>
+                <div className="mb-6 grid grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-accent-600">
+                    <div className="text-accent-600 text-2xl font-bold">
                       {project.results.metric1.value}
                     </div>
                     <div className="text-sm text-gray-600">
@@ -86,7 +85,7 @@ const FeaturedProjects = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-accent-600">
+                    <div className="text-accent-600 text-2xl font-bold">
                       {project.results.metric2.value}
                     </div>
                     <div className="text-sm text-gray-600">
@@ -94,7 +93,7 @@ const FeaturedProjects = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-accent-600">
+                    <div className="text-accent-600 text-2xl font-bold">
                       {project.results.metric3.value}
                     </div>
                     <div className="text-sm text-gray-600">
@@ -107,7 +106,7 @@ const FeaturedProjects = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-accent-100 text-accent-800 px-3 py-1 rounded-full text-sm"
+                        className="bg-accent-100 text-accent-800 rounded-full px-3 py-1 text-sm"
                       >
                         {tech}
                       </span>
@@ -117,14 +116,14 @@ const FeaturedProjects = () => {
                 <div className="flex space-x-4">
                   <a
                     href={project.liveUrl}
-                    className="inline-flex items-center text-accent-600 hover:text-accent-700 font-medium"
+                    className="text-accent-600 hover:text-accent-700 inline-flex items-center font-medium"
                   >
                     <SafeIcon name="ExternalLink" className="mr-1 h-4 w-4" />
                     Live Demo
                   </a>
                   <a
                     href={project.githubUrl}
-                    className="inline-flex items-center text-gray-600 hover:text-gray-700 font-medium"
+                    className="inline-flex items-center font-medium text-gray-600 hover:text-gray-700"
                   >
                     <SafeIcon name="Github" className="mr-1 h-4 w-4" />
                     Code

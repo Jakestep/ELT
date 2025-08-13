@@ -131,25 +131,25 @@ const AllProjects = () => {
       : projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="bg-gray-50 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             All Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Browse our complete portfolio of successful software development
             projects.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="mb-12 flex flex-wrap justify-center gap-4">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+              className={`rounded-lg px-6 py-3 font-medium transition-colors ${
                 selectedCategory === category.id
                   ? "bg-accent-600 text-white"
                   : "bg-background text-gray-700 hover:bg-gray-100"
@@ -161,27 +161,27 @@ const AllProjects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+              className="bg-background overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover"
+                  className="h-48 w-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="mb-2 text-xl font-bold text-gray-900">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4 text-sm">
+                <p className="mb-4 text-sm text-gray-600">
                   {project.description}
                 </p>
                 <div className="mb-4">
@@ -189,14 +189,14 @@ const AllProjects = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                        className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <div className="flex space-x-3">
                     <a
                       href={project.liveUrl}
@@ -206,13 +206,13 @@ const AllProjects = () => {
                     </a>
                     <a
                       href={project.githubUrl}
-                      className="text-gray-600 hover:text-gray-700 text-sm font-medium"
+                      className="text-sm font-medium text-gray-600 hover:text-gray-700"
                     >
                       <SafeIcon name="Github" className="h-4 w-4" />
                     </a>
                   </div>
                   {project.featured && (
-                    <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">
+                    <span className="rounded bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-800">
                       Featured
                     </span>
                   )}

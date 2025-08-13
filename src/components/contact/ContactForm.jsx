@@ -10,35 +10,33 @@ const initialState = { success: null, error: null };
 
 const ContactForm = () => {
   const [state, formAction] = useActionState(submitContactForm, initialState);
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (state.success != null) {
       setIsModalOpen(true);
     }
-  
-    return () => {
-    }
-  }, [state])
-  
-  
+
+    return () => {};
+  }, [state]);
+
   const contactInfo = [
     {
-      icon: 'Mail',
+      icon: "Mail",
       title: "Email",
       content: "jake@everlesstech.com",
       description: "Send us an email anytime",
       link: "mailto:jake@everlesstech.com",
     },
     {
-      icon: 'Phone',
+      icon: "Phone",
       title: "Phone",
       content: "+1 (575) 520-4956",
       description: "Mon-Fri from 7am to 4pm MDT",
       link: "tel:+15755204956",
     },
     {
-      icon: 'MapPin',
+      icon: "MapPin",
       title: "Location",
       content: "Remote & On-site",
       description: "Serving clients worldwide",
@@ -73,21 +71,24 @@ const ContactForm = () => {
 
   return (
     <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-1">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-background p-8 rounded-lg shadow-lg"
+            className="bg-background rounded-lg p-8 shadow-lg"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="mb-6 text-3xl font-bold text-gray-900">
               Start Your Project
             </h2>
 
             <form action={formAction} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -95,12 +96,15 @@ const ContactForm = () => {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
                     Email Address *
                   </label>
                   <input
@@ -108,77 +112,98 @@ const ContactForm = () => {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="company"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
                   Company
                 </label>
                 <input
                   type="text"
                   id="company"
                   name="company"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                  className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
                   placeholder="Your Company (or self)"
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="projectType"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
                     Project Type *
                   </label>
                   <select
                     id="projectType"
                     name="projectType"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
                   >
                     <option value="">Select project type</option>
                     {projectTypes.map((type, index) => (
-                      <option key={index} value={type}>{type}</option>
+                      <option key={index} value={type}>
+                        {type}
+                      </option>
                     ))}
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="budget"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
                     Budget Range
                   </label>
                   <select
                     id="budget"
                     name="budget"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
                   >
                     <option value="">Select budget range</option>
                     {budgetRanges.map((range, index) => (
-                      <option key={index} value={range}>{range}</option>
+                      <option key={index} value={range}>
+                        {range}
+                      </option>
                     ))}
                   </select>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="timeline"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
                   Timeline
                 </label>
                 <select
                   id="timeline"
                   name="timeline"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                  className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
                 >
                   <option value="">Select timeline</option>
                   {timelines.map((timeline, index) => (
-                    <option key={index} value={timeline}>{timeline}</option>
+                    <option key={index} value={timeline}>
+                      {timeline}
+                    </option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
                   Project Description *
                 </label>
                 <textarea
@@ -186,31 +211,38 @@ const ContactForm = () => {
                   name="message"
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                  className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
                   placeholder="Tell us about your project, goals, and any specific requirements..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-accent-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-accent-700 transition-colors inline-flex items-center justify-center"
+                className="bg-accent-600 hover:bg-accent-700 inline-flex w-full items-center justify-center rounded-lg px-8 py-4 font-medium text-white transition-colors"
               >
                 Send Message
                 <SafeIcon name="Send" className="ml-2 h-5 w-5" />
               </button>
 
-              
-              <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Submission Received">
+              <Modal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                title="Submission Received"
+              >
                 <pre className="text-sm whitespace-pre-wrap">
-                  {state.success ? 
-                      <p className="text-green-600 font-medium mt-4">Thanks! We'll be in touch soon.</p>
-                    : state.error ?
-                      <p className="text-red-600 font-medium mt-4">{state.error}</p>
-                    : <p>Thank you!</p>
-                  }
+                  {state.success ? (
+                    <p className="mt-4 font-medium text-green-600">
+                      Thanks! We'll be in touch soon.
+                    </p>
+                  ) : state.error ? (
+                    <p className="mt-4 font-medium text-red-600">
+                      {state.error}
+                    </p>
+                  ) : (
+                    <p>Thank you!</p>
+                  )}
                 </pre>
               </Modal>
-
             </form>
           </motion.div>
         </div>

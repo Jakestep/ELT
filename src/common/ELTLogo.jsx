@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const ELTLogo = ({height, width, style, ...props}) => (
+const ELTLogo = ({ height, width, style, ...props }) => (
   <svg
     viewBox="827.392 1015.808 2818.048 1515.52"
     xmlnsXlink="http://www.w3.org/1999/xlink"

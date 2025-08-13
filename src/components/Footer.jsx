@@ -8,14 +8,12 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-around flex-wrap">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center justify-around">
           {/* Company Info */}
           <div className="col-span-1">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <ELTLogo
-                className={`h-12 fill-white stroke-white`} 
-              />
+            <Link href="/" className="mb-4 flex items-center space-x-2">
+              <ELTLogo className={`h-12 fill-white stroke-white`} />
               <div className="flex flex-col">
                 <span className="text-lg font-bold">EverLessTech</span>
                 <span className="text-xs text-gray-400">

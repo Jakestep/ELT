@@ -79,61 +79,61 @@ const FeaturedArticles = () => {
 
   return (
     <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Featured Articles
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Our most popular and insightful articles on software development.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {featuredPosts.map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-background rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-background overflow-hidden rounded-lg shadow-lg transition-shadow hover:shadow-xl"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-48 object-cover"
+                  className="h-48 w-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
+                <div className="mb-4 flex items-center justify-between">
                   <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${categories.find((cat) => cat.id === post.category)?.color}`}
+                    className={`rounded-full px-3 py-1 text-sm font-medium ${categories.find((cat) => cat.id === post.category)?.color}`}
                   >
                     {categories.find((cat) => cat.id === post.category)?.name}
                   </span>
-                  <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">
+                  <span className="rounded bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-800">
                     Featured
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-accent-600 cursor-pointer">
+                <h3 className="hover:text-accent-600 mb-3 cursor-pointer text-xl font-bold text-gray-900">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                <p className="mb-4 text-gray-600">{post.excerpt}</p>
                 <div className="flex items-center justify-between text-sm text-gray-500">
                   <div className="flex items-center space-x-4">
                     <span className="flex items-center">
-                      <SafeIcon name="User" className="h-4 w-4 mr-1" />
+                      <SafeIcon name="User" className="mr-1 h-4 w-4" />
                       {post.author}
                     </span>
                     <span className="flex items-center">
-                      <SafeIcon name="Calendar" className="h-4 w-4 mr-1" />
+                      <SafeIcon name="Calendar" className="mr-1 h-4 w-4" />
                       {format(post.publishDate, "MMM dd, yyyy")}
                     </span>
                   </div>
                   <span>{post.readTime}</span>
                 </div>
                 <div className="mt-4">
-                  <button className="inline-flex items-center text-accent-600 hover:text-accent-700 font-medium">
+                  <button className="text-accent-600 hover:text-accent-700 inline-flex items-center font-medium">
                     Read More
                     <SafeIcon name="ArrowRight" className="ml-1 h-4 w-4" />
                   </button>

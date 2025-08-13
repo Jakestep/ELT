@@ -138,42 +138,42 @@ const AllArticles = () => {
   });
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="bg-gray-50 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             All Articles
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Browse our complete collection of development articles and
             tutorials.
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="max-w-md mx-auto mb-8">
+        <div className="mx-auto mb-8 max-w-md">
           <div className="relative">
             <SafeIcon
               name={"Search"}
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
+              className="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 transform text-gray-400"
             />
             <input
               type="text"
               placeholder="Search articles..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+              className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 py-3 pr-4 pl-10 focus:border-transparent focus:ring-2"
             />
           </div>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="mb-12 flex flex-wrap justify-center gap-4">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+              className={`rounded-lg px-6 py-3 font-medium transition-colors ${
                 selectedCategory === category.id
                   ? "bg-accent-600 text-white"
                   : "bg-background text-gray-700 hover:bg-gray-100"
@@ -185,46 +185,46 @@ const AllArticles = () => {
         </div>
 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredPosts.map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+              className="bg-background overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-48 object-cover"
+                  className="h-48 w-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
+                <div className="mb-4 flex items-center justify-between">
                   <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${categories.find((cat) => cat.id === post.category)?.color}`}
+                    className={`rounded-full px-3 py-1 text-sm font-medium ${categories.find((cat) => cat.id === post.category)?.color}`}
                   >
                     {categories.find((cat) => cat.id === post.category)?.name}
                   </span>
                   {post.featured && (
-                    <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">
+                    <span className="rounded bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-800">
                       Featured
                     </span>
                   )}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 hover:text-accent-600 cursor-pointer">
+                <h3 className="hover:text-accent-600 mb-3 cursor-pointer text-lg font-bold text-gray-900">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-4 text-sm">{post.excerpt}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <p className="mb-4 text-sm text-gray-600">{post.excerpt}</p>
+                <div className="mb-4 flex flex-wrap gap-2">
                   {post.tags.slice(0, 3).map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="inline-flex items-center bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                      className="inline-flex items-center rounded bg-gray-100 px-2 py-1 text-xs text-gray-700"
                     >
-                      <SafeIcon name={"Tag"} className="h-3 w-3 mr-1" />
+                      <SafeIcon name={"Tag"} className="mr-1 h-3 w-3" />
                       {tag}
                     </span>
                   ))}
@@ -232,18 +232,18 @@ const AllArticles = () => {
                 <div className="flex items-center justify-between text-sm text-gray-500">
                   <div className="flex items-center space-x-3">
                     <span className="flex items-center">
-                      <SafeIcon name={"User"} className="h-4 w-4 mr-1" />
+                      <SafeIcon name={"User"} className="mr-1 h-4 w-4" />
                       {post.author}
                     </span>
                     <span className="flex items-center">
-                      <SafeIcon name={"Calendar"} className="h-4 w-4 mr-1" />
+                      <SafeIcon name={"Calendar"} className="mr-1 h-4 w-4" />
                       {format(post.publishDate, "MMM dd")}
                     </span>
                   </div>
                   <span>{post.readTime}</span>
                 </div>
                 <div className="mt-4">
-                  <button className="inline-flex items-center text-accent-600 hover:text-accent-700 font-medium text-sm">
+                  <button className="text-accent-600 hover:text-accent-700 inline-flex items-center text-sm font-medium">
                     Read More
                     <SafeIcon name={"ArrowRight"} className="ml-1 h-4 w-4" />
                   </button>
@@ -254,8 +254,8 @@ const AllArticles = () => {
         </div>
 
         {filteredPosts.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
+          <div className="py-12 text-center">
+            <p className="text-lg text-gray-500">
               No articles found matching your criteria.
             </p>
           </div>

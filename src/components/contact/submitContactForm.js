@@ -1,32 +1,30 @@
-'use server';
+"use server";
 
-import { Resend } from 'resend';
-import ClientEmail from './ClientEmail';
+import { Resend } from "resend";
+import ClientEmail from "./ClientEmail";
 
 
 export async function submitContactForm(_, formData) {
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const company = formData.get('company');
-  const projectType = formData.get('projectType');
-  const budget = formData.get('budget');
-  const timeline = formData.get('timeline');
-  const message = formData.get('message');
-  
-  try {
-    const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const company = formData.get("company");
+  const projectType = formData.get("projectType");
+  const budget = formData.get("budget");
+  const timeline = formData.get("timeline");
+  const message = formData.get("message");
 
+  try {
     await resend.emails.send({
-      from: 'Jake Estep <jake@everlesstech.com>',
+      from: "jake@everlesstech.com",
       to: email,
       subject: `Thanks for reaching out!`,
-      replyTo: 'jake@everlesstech.com',
-      react: <ClientEmail name={name} />
-    })
+      replyTo: "jake@everlesstech.com",
+      react: <ClientEmail name={name} />,
+    });
 
     await resend.emails.send({
-      from: 'ELT Contact <contact@everlesstech.com>', // must be verified
-      to: 'jake@everlesstech.com',
+      from: "jake@everlesstech.com", // must be verified
+      to: "jake@everlesstech.com",
       subject: `New Contact: ${name} (${projectType})`,
       replyTo: email,
       text: `
@@ -47,6 +45,9 @@ ${message}
     return { success: true };
   } catch (error) {
     console.error(error);
-    return { success: false, error: <span>Failed to send message. Please try again, or email <a href="mailto:jake@everlesstech.com">jake@everlesstech.com </a>for assistance</span>};
+    return {
+      success: false,
+      error: "Failed to send message. Please try again.",
+    };
   }
 }

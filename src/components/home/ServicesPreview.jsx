@@ -5,23 +5,23 @@ import SafeIcon from "../../common/SafeIcon";
 
 const ServicesPreview = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="bg-gray-50 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Our Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Comprehensive software development and SEO solutions tailored to
             your business needs.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-background p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="bg-background rounded-lg p-8 shadow-sm transition-shadow hover:shadow-md">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900">
               Web Applications
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Modern, responsive web applications built with the latest
               technologies and best practices.
             </p>
@@ -29,31 +29,31 @@ const ServicesPreview = () => {
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 React & Next.js
               </li>
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 Node.js & Express
               </li>
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 Database Integration
               </li>
             </ul>
           </div>
-          <div className="bg-background p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+          <div className="bg-background rounded-lg p-8 shadow-sm transition-shadow hover:shadow-md">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900">
               SEO Services
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Comprehensive search engine optimization to improve visibility and
               drive organic traffic.
             </p>
@@ -61,31 +61,31 @@ const ServicesPreview = () => {
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 Technical SEO Audits
               </li>
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 Keyword Research
               </li>
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 Content Optimization
               </li>
             </ul>
           </div>
-          <div className="bg-background p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+          <div className="bg-background rounded-lg p-8 shadow-sm transition-shadow hover:shadow-md">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900">
               Custom Solutions
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               Tailored software solutions designed to solve your unique business
               challenges.
             </p>
@@ -93,31 +93,31 @@ const ServicesPreview = () => {
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 Business Analysis
               </li>
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 System Architecture
               </li>
               <li className="flex items-center">
                 <SafeIcon
                   name="CheckCircle"
-                  className="h-4 w-4 text-green-500 mr-2"
+                  className="mr-2 h-4 w-4 text-green-500"
                 />
                 Ongoing Support
               </li>
             </ul>
           </div>
         </div>
-        <div className="text-center mt-12">
+        <div className="mt-12 text-center">
           <Link
             href="/services"
-            className="bg-accent-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-700 transition-colors inline-flex items-center"
+            className="bg-accent-600 hover:bg-accent-700 inline-flex items-center rounded-lg px-8 py-4 text-lg font-medium text-white transition-colors"
           >
             View All Services
             <SafeIcon name="ArrowRight" className="ml-2 h-5 w-5" />

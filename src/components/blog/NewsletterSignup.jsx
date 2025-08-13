@@ -25,20 +25,20 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="py-20 bg-accent-600">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    <section className="bg-accent-600 py-20">
+      <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
           Stay Updated
         </h2>
-        <p className="text-xl text-accent-100 mb-8 max-w-3xl mx-auto">
+        <p className="text-accent-100 mx-auto mb-8 max-w-3xl text-xl">
           Subscribe to our newsletter for the latest insights, tutorials, and
           industry trends.
         </p>
-        <div className="max-w-md mx-auto">
+        <div className="mx-auto max-w-md">
           {!isSubmitted ? (
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col gap-4 sm:flex-row"
             >
               <input
                 type="email"
@@ -46,17 +46,17 @@ const NewsletterSignup = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-4 py-3 rounded-lg border border-accent-500 focus:ring-2 focus:ring-white focus:border-transparent"
+                className="border-accent-500 flex-1 rounded-lg border px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-white"
               />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-background text-accent-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors disabled:bg-gray-200 disabled:text-accent-400"
+                className="bg-background text-accent-600 disabled:text-accent-400 rounded-lg px-6 py-3 font-medium transition-colors hover:bg-gray-100 disabled:bg-gray-200"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
                     <svg
-                      className="animate-spin -ml-1 mr-2 h-4 w-4 text-accent-600"
+                      className="text-accent-600 mr-2 -ml-1 h-4 w-4 animate-spin"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ const NewsletterSignup = () => {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-background text-accent-600 px-6 py-4 rounded-lg font-medium"
+              className="bg-background text-accent-600 rounded-lg px-6 py-4 font-medium"
             >
               Thanks for subscribing! Check your inbox soon.
             </motion.div>
