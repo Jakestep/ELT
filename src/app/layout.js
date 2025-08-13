@@ -71,7 +71,6 @@ export const metadata = {
   manifest: "/site.manifest",
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -80,11 +79,11 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={inter.className}>
-        <div className="min-h-screen  flex flex-col [--header-height:_calc(var(--spacing)_*_16)]">
+        <div className="flex min-h-screen flex-col [--header-height:_calc(var(--spacing)_*_16)]">
           {/* <Header
             className={`h-(--header-height) sticky z-[50]`} 
           /> */}
-          <main className="flex-grow ">{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
       </body>

@@ -8,18 +8,24 @@ import CtaSection from "../../common/CtaSection";
 
 export const metadata = {
   title: "Portfolio | EverLessTech",
-  description: "See real projects we've built and read what our clients say. Custom websites, apps, and branding for people who hate tech headaches.",
-  keywords: ["Web dev portfolio", "Las Cruces websites", "Client reviews EverLessTech", "Modern web design"],
+  description:
+    "See real projects we've built and read what our clients say. Custom websites, apps, and branding for people who hate tech headaches.",
+  keywords: [
+    "Web dev portfolio",
+    "Las Cruces websites",
+    "Client reviews EverLessTech",
+    "Modern web design",
+  ],
   openGraph: {
     title: "Portfolio | EverLessTech",
     description: "Explore our work — fast, human, and built to last.",
-    images: ["/og/portfolio.jpg"]
+    images: ["/og/portfolio.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Portfolio | EverLessTech",
     description: "Smart, beautiful websites made for real people.",
-    images: ["/og/portfolio.jpg"]
+    images: ["/og/portfolio.jpg"],
   },
   robots: {
     index: true,
@@ -31,16 +37,17 @@ export const metadata = {
       maxImagePreview: "large",
       maxSnippet: -1,
       maxVideoPreview: -1,
-    }
+    },
   },
   other: {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "name": "EverLessTech Portfolio",
-      "description": "Showcasing past projects in web design, branding, and software."
-    })
-  }
+      name: "EverLessTech Portfolio",
+      description:
+        "Showcasing past projects in web design, branding, and software.",
+    }),
+  },
 };
 
 export default function Portfolio() {

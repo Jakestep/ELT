@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import SafeIcon from "@/common/SafeIcon";
 import ELTLogo from "../common/ELTLogo";
 
-const Header = ({ className  }) => {
+const Header = ({ className }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +43,7 @@ const Header = ({ className  }) => {
     closed: {
       opacity: 0,
       height: 0,
-      padding: '0px',
+      padding: "0px",
       transition: {
         duration: 0.3,
         ease: "easeInOut",
@@ -52,8 +52,8 @@ const Header = ({ className  }) => {
     },
     open: {
       opacity: 1,
-      padding: '1rem',
-      height: 'fit-content',
+      padding: "1rem",
+      height: "fit-content",
       transition: {
         duration: 0.4,
         ease: "easeInOut",
@@ -62,7 +62,6 @@ const Header = ({ className  }) => {
       },
     },
   };
-  
 
   const itemVariants = {
     closed: {
@@ -95,26 +94,31 @@ const Header = ({ className  }) => {
   };
 
   return (
-    <header className={`top-0 left-0 right-0 shadow-sm border-b border-gray-100 ${className}`}>
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`fixed top-0 left-0 w-screen h-screen z-[-1] ${!isMenuOpen && 'hidden'}`} />
+    <header
+      className={`top-0 right-0 left-0 border-b border-gray-100 shadow-sm ${className}`}
+    >
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className={`fixed top-0 left-0 z-[-1] h-screen w-screen ${!isMenuOpen && "hidden"}`}
+      />
       <nav
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-inherit"
+        className="mx-auto max-w-7xl bg-inherit px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <div className="flex justify-between items-center h-16">
+        <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="flex items-center h-full space-x-2 text-(--title-color) transition-colors [--title-color:_var(--color-primary-600)] hover:[--title-color:_var(--color-accent-600)]"
+            className="flex h-full items-center space-x-2 text-(--title-color) transition-colors [--title-color:_var(--color-primary-600)] hover:[--title-color:_var(--color-accent-600)]"
           >
             {/* <SafeIcon name="Code" className="h-8 w-8" /> */}
-            <div className={`h-full py-2 flex items-center justify-center`} >
+            <div className={`flex h-full items-center justify-center py-2`}>
               <ELTLogo
-                height={'100%'}
-                className={`fill-(--title-color) stroke-(--title-color) transition-colors `}
+                height={"100%"}
+                className={`fill-(--title-color) stroke-(--title-color) transition-colors`}
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold ">EverLessTech</span>
+              <span className="text-xl font-bold">EverLessTech</span>
               <span className="text-xs text-gray-500 italic">
                 Less tech, more life
               </span>
@@ -122,17 +126,17 @@ const Header = ({ className  }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden items-center space-x-8 md:flex">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={`text-sm font-medium transition-colors ${
                   isActive(item.href)
-                    ? "text-accent-600 border-b-2 border-accent-600"
+                    ? "text-accent-600 border-accent-600 border-b-2"
                     : clickedPath === item.href && isLoading
                       ? "text-gray-300"
-                      : "text-gray-700 hover:text-accent-600"
+                      : "hover:text-accent-600 text-gray-700"
                 }`}
                 onClick={() => {
                   setClickedPath(item.href);
@@ -144,7 +148,7 @@ const Header = ({ className  }) => {
             ))}
             <Link
               href="/contact"
-              className="bg-accent-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent-700 transition-colors"
+              className="bg-accent-600 hover:bg-accent-700 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
             >
               Get Started
             </Link>
@@ -152,7 +156,7 @@ const Header = ({ className  }) => {
 
           {/* Mobile menu button with enhanced animation */}
           <motion.button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-accent-600 hover:bg-gray-100 transition-colors"
+            className="hover:text-accent-600 rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-label="Toggle navigation menu"
@@ -178,27 +182,31 @@ const Header = ({ className  }) => {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="md:hidden  box-border overflow-hidden bg-inherit"
+              className="box-border overflow-hidden bg-inherit md:hidden"
             >
               <motion.div className="flex flex-col space-y-1">
                 {navigation.map((item) => (
-                  <motion.div key={item.name} variants={itemVariants} className={`w-full relative rounded-lg text-base font-medium transition-colors block px-4 py-2 ${
-                    isActive(item.href)
-                      ? "text-accent-600 bg-accent-50"
-                      : "text-gray-700 hover:text-accent-600 hover:bg-gray-50"
-                    }`} >
+                  <motion.div
+                    key={item.name}
+                    variants={itemVariants}
+                    className={`relative block w-full rounded-lg px-4 py-2 text-base font-medium transition-colors ${
+                      isActive(item.href)
+                        ? "text-accent-600 bg-accent-50"
+                        : "hover:text-accent-600 text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
                     <Link
                       href={item.href}
-                      className={`text-base font-medium absolute inset-0 transition-colors block w-full px-4 py-2 rounded-lg`}
+                      className={`absolute inset-0 block w-full rounded-lg px-4 py-2 text-base font-medium transition-colors`}
                       onClick={() => setIsMenuOpen(false)}
-                     />
-                      {item.name}
+                    />
+                    {item.name}
                   </motion.div>
                 ))}
                 <motion.div variants={itemVariants}>
                   <Link
                     href="/contact"
-                    className="bg-accent-600 text-white px-4 py-2 rounded-lg text-base font-medium hover:bg-accent-700 transition-colors text-center block mx-4 mt-2"
+                    className="bg-accent-600 hover:bg-accent-700 mx-4 mt-2 block rounded-lg px-4 py-2 text-center text-base font-medium text-white transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Get Started

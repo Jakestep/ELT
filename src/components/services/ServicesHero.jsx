@@ -4,17 +4,20 @@ import { motion } from "motion/react";
 
 const ServicesHero = () => {
   return (
-    <section className="bg-gradient-to-br from-accent-50 to-white">
+    <section className="from-accent-50 bg-gradient-to-br to-white">
       <RippleBackground
-        className={`py-20 bg-top bg-no-repeat bg-cover w-full h-full`}
-        background={{backgroundImage: 'url("/blur-jason-pofahl-YU82HZASi6E-unsplash-0.5x.webp")'}}
+        className={`h-full w-full bg-cover bg-top bg-no-repeat py-20`}
+        background={{
+          backgroundImage:
+            'url("/blur-jason-pofahl-YU82HZASi6E-unsplash-0.5x.webp")',
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+              className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl"
             >
               Our <span className="text-accent-600">Services</span>
             </motion.h1>
@@ -22,7 +25,7 @@ const ServicesHero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="mx-auto max-w-3xl text-xl text-gray-600"
             >
               Comprehensive software development and SEO services designed to
               accelerate your business growth and digital transformation.{" "}

@@ -3,10 +3,12 @@
 import { testimonials } from "@/data/testimonials";
 import { motion } from "motion/react";
 
-
 export default function TestimonialsSection() {
   return (
-    <section aria-labelledby="testimonials-title" className="px-4 sm:px-6 lg:px-8 py-16 bg-gray-50">
+    <section
+      aria-labelledby="testimonials-title"
+      className="bg-gray-50 px-4 py-16 sm:px-6 lg:px-8"
+    >
       {/* JSON-LD for reviews/aggregate rating */}
       <script
         type="application/ld+json"
@@ -51,7 +53,10 @@ export default function TestimonialsSection() {
             >
               <div className="flex items-center gap-3">
                 <div className="grid h-10 w-10 place-content-center rounded-full bg-gray-100 text-sm font-medium text-gray-700">
-                  {t.name.split(" ").map((n) => n[0]).join("")}
+                  {t.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </div>
                 <figcaption>
                   <div className="font-medium">{t.name}</div>
@@ -84,11 +89,13 @@ export default function TestimonialsSection() {
         <div className="mt-10 text-center">
           <a
             href="/scorecard"
-            className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium bg-black text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-black/30"
+            className="inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white hover:opacity-90 focus:ring-2 focus:ring-black/30 focus:outline-none"
           >
             Get My Free Scorecard
           </a>
-          <p className="mt-2 text-sm text-gray-500">No spam. One‑click unsubscribe.</p>
+          <p className="mt-2 text-sm text-gray-500">
+            No spam. One‑click unsubscribe.
+          </p>
         </div>
       </div>
     </section>

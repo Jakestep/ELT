@@ -2,7 +2,6 @@
 import StoryComponent from "./StoryComponent";
 
 const StorySection = () => {
-
   const storyData = [
     {
       icon: "Zap",
@@ -33,48 +32,47 @@ const StorySection = () => {
 
   return (
     <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          <div className="bg-gray-100 rounded-lg p-8">
-            <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-4 auto-rows-subgrid ">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          <div className="rounded-lg bg-gray-100 p-8">
+            <div className="auto-rows-subgrid grid grid-cols-[auto_1fr] gap-x-4 gap-y-4">
               {storyData.map((item, idx) => (
                 <StoryComponent key={idx} {...item} />
               ))}
             </div>
           </div>
 
-          <div className="bg-gray-100 rounded-lg p-8">
+          <div className="rounded-lg bg-gray-100 p-8">
             <div className="grid grid-cols-2 gap-8">
               <div className="text-center">
-                <div className="text-lg font-semibold text-accent-600 mb-2">
+                <div className="text-accent-600 mb-2 text-lg font-semibold">
                   Built With Intention
                 </div>
-                <div className="text-gray-600 text-sm">
+                <div className="text-sm text-gray-600">
                   Every decision serves a purpose.
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-semibold text-accent-600 mb-2">
+                <div className="text-accent-600 mb-2 text-lg font-semibold">
                   Fast & Lightweight
                 </div>
-                <div className="text-gray-600 text-sm">
+                <div className="text-sm text-gray-600">
                   Optimized for real-world use.
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-semibold text-accent-600 mb-2">
+                <div className="text-accent-600 mb-2 text-lg font-semibold">
                   Quietly Excellent
                 </div>
-                <div className="text-gray-600 text-sm">
+                <div className="text-sm text-gray-600">
                   No fluff. Just clean, modern work.
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-lg font-semibold text-accent-600 mb-2">
+                <div className="text-accent-600 mb-2 text-lg font-semibold">
                   Human First
                 </div>
-                <div className="text-gray-600 text-sm">
+                <div className="text-sm text-gray-600">
                   Got a problem? We'll find a solution.
                 </div>
               </div>

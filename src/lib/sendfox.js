@@ -3,11 +3,20 @@ const BASE = "https://api.sendfox.com";
 function authHeaders() {
   const token = process.env.NEXT_SENDFOX_TOKEN;
   if (!token) throw new Error("Missing NEXT_SENDFOX_TOKEN");
-  return { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
+  return {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
 }
 
 /** Create/update a contact and add to list(s). */
-export async function sendfoxUpsertContact({ email, first_name, last_name, ip, listIds = [] }) {
+export async function sendfoxUpsertContact({
+  email,
+  first_name,
+  last_name,
+  ip,
+  listIds = [],
+}) {
   const res = await fetch(`${BASE}/contacts`, {
     method: "POST",
     headers: authHeaders(),

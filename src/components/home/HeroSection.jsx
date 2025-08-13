@@ -9,14 +9,14 @@ const HeroSection = () => {
     <RippleBackground>
       <section className="relative h-screen w-full">
         {/* soft overlay for contrast */}
-        <div className="absolute inset-0 bg-black/10 md:bg-black/5 pointer-events-none" />
-        <div className="absolute inset-0 flex ">
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 absolute top-[30%] left-[50%] -translate-x-[50%]">
+        <div className="pointer-events-none absolute inset-0 bg-black/10 md:bg-black/5" />
+        <div className="absolute inset-0 flex">
+          <div className="absolute top-[30%] left-[50%] mx-auto w-full max-w-7xl -translate-x-[50%] px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-4xl md:text-6xl font-bold text-gray-900 drop-shadow-sm"
+                className="text-4xl font-bold text-gray-900 drop-shadow-sm md:text-6xl"
               >
                 Tech terrors giving you the cold sweats?
               </motion.h1>
@@ -25,7 +25,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 }}
-                className="mt-4 text-xl text-gray-800 md:text-gray-700 max-w-3xl mx-auto"
+                className="mx-auto mt-4 max-w-3xl text-xl text-gray-800 md:text-gray-700"
               >
                 It doesn't have to be this way.
               </motion.p>
@@ -34,7 +34,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.16 }}
-                className="mt-8 h-fit flex"
+                className="mt-8 flex h-fit"
               >
                 <Flip3DButton
                   href="/scorecard"

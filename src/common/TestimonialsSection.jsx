@@ -12,36 +12,36 @@ const TestimonialsSection = ({ testimonials }) => {
   }
 
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="bg-background py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             What Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Trusted by businesses worldwide for quality software development and
             SEO services.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gray-50 p-8 rounded-lg"
+              className="rounded-lg bg-gray-50 p-8"
             >
-              <div className="flex items-center mb-4">
+              <div className="mb-4 flex items-center">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <SafeIcon
                     key={i}
                     name="Star"
-                    className="h-5 w-5 text-yellow-400 fill-current"
+                    className="h-5 w-5 fill-current text-yellow-400"
                   />
                 ))}
               </div>
-              <p className="text-gray-700 mb-4 italic">
+              <p className="mb-4 text-gray-700 italic">
                 "{testimonial.content}"
               </p>
               <div>

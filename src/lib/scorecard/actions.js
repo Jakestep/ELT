@@ -1,11 +1,15 @@
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import ScorecardEmail from "@/emails/ScorecardEmail";
+import { makeOfferToken } from "../offer-token";
 
-
-const supabase = createClient(process.env.NEXT_SUPABASE_URL, process.env.NEXT_SUPABASE_SECRET_KEY, {
-  auth: { persistSession: false },
-});
+const supabase = createClient(
+  process.env.NEXT_SUPABASE_URL,
+  process.env.NEXT_SUPABASE_SECRET_KEY,
+  {
+    auth: { persistSession: false },
+  },
+);
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 
 export async function storePdf(fileBuffer, path) {
@@ -19,20 +23,39 @@ export async function storePdf(fileBuffer, path) {
   return data.publicUrl;
 }
 
-export async function sendScorecardEmail({ name: n, email, pdfBuffer, auditUrl = "https://everlesstech.com/audit" }) {
-  let name = n.split(' ')[0];
+export async function sendScorecardEmail({
+  name: n,
+  email,
+  pdfBuffer,
+}) {
+
+  const t = makeOfferToken({ email, ttlHours: 36 });
+
+  const auditUrl = `${process.env.NEXT_SITE_URL}/api/scorecard/offer?t=${t}&next=/audit`;
+
+  // pass auditUrl into your React Email template <Button href={auditUrl} />
+
+  let name = n.split(" ")[0];
   await resend.emails.send({
-    from: process.env.NEXT_RESEND_FROM,  // "Jake with EverLessTech <jake@everlesstech.com>"
+    from: process.env.NEXT_RESEND_FROM, // "Jake with EverLessTech <jake@everlesstech.com>"
     to: email,
-    subject: "You = The 💣",
-    react: ScorecardEmail({ name, auditUrl }),  // pass unsubUrl into the template
-    text: textFallback({ name, auditUrl }),
-    attachments: [{ filename: `Scorecard_Report-${name}.pdf`, content: pdfBuffer.toString("base64") }],
+    subject: "Your FREE Scorecard is here..",
+    react: ScorecardEmail({ name, auditUrl}),
+    text: textFallback({ name, auditUrl}),
+    attachments: [
+      {
+        filename: `Scorecard_Report-${name}.pdf`,
+        content: pdfBuffer.toString("base64"),
+      },
+    ],
     reply_to: "jake@everlesstech.com",
   });
 }
 
-function textFallback({ name = "friend", auditUrl = "https://everlesstech.com/audit"}) {
+function textFallback({
+  name = "friend",
+  auditUrl = "https://everlesstech.com/audit",
+}) {
   return [
     `You = The 💣`,
     ``,

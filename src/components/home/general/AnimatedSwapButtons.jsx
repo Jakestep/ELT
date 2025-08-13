@@ -19,7 +19,7 @@ export default function AnimatedSwapButton({
 
   return (
     <div
-      className="relative h-14 min-w-[14rem] mx-3" // ← adds horizontal spacing
+      className="relative mx-3 h-14 min-w-[14rem]" // ← adds horizontal spacing
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -32,7 +32,7 @@ export default function AnimatedSwapButton({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`absolute inset-0 px-8 py-4 rounded-lg text-lg font-medium inline-flex items-center justify-center ${defaultClasses}`}
+            className={`absolute inset-0 inline-flex items-center justify-center rounded-lg px-8 py-4 text-lg font-medium ${defaultClasses}`}
           >
             {defaultText}
             {iconName && <SafeIcon name={iconName} className="ml-2 h-5 w-5" />}
@@ -45,7 +45,7 @@ export default function AnimatedSwapButton({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`absolute inset-0 px-8 py-4 rounded-lg text-lg font-medium inline-flex items-center justify-center ${hoverClasses}`}
+            className={`absolute inset-0 inline-flex items-center justify-center rounded-lg px-8 py-4 text-lg font-medium ${hoverClasses}`}
           >
             {hoverText}
             {iconName && <SafeIcon name={iconName} className="ml-2 h-5 w-5" />}

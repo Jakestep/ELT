@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const RippleBackground = ({ children, className, background }) => {
   if (!background) {
-    background = {backgroundImage: 'var(--main-background)'}
+    background = { backgroundImage: "var(--main-background)" };
   }
 
   const rippleRef = useRef(null);
@@ -23,7 +23,8 @@ const RippleBackground = ({ children, className, background }) => {
     const hasBg = style.backgroundImage && style.backgroundImage !== "none";
 
     if (!hasBg) {
-      el.style.backgroundImage = background.backgroundImage || 'var(--main-background)';
+      el.style.backgroundImage =
+        background.backgroundImage || "var(--main-background)";
       // el.style.backgroundSize = "cover";
       // el.style.backgroundPosition = "center";
       el.style.backgroundColor = "transparent";
@@ -35,13 +36,15 @@ const RippleBackground = ({ children, className, background }) => {
     const $el = $(rippleRef.current);
 
     const shouldDisableRipples = () => {
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
       // const isTouch = "ontouchstart" in window;
       // const isLowRes = window.innerWidth < 480;
       // const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
 
       // return prefersReducedMotion || isTouch || isLowRes || isMobile;
-      return prefersReducedMotion
+      return prefersReducedMotion;
     };
 
     if (shouldDisableRipples()) {
@@ -64,31 +67,28 @@ const RippleBackground = ({ children, className, background }) => {
     // Manually handle soft taps
     if (isMobile) {
       $el.on("touchstart", (e) => {
-      
         const touch = e.touches[0]; // first finger
         const rect = $el[0].getBoundingClientRect();
         const x = touch.clientX - rect.left;
         const y = touch.clientY - rect.top;
-        
+
         $el.ripples("drop", x, y, 20, 0.05); // controlled softness
       });
     } else {
-      $el.on('mousemove', (e) => {
+      $el.on("mousemove", (e) => {
         const rect = $el[0].getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         $el.ripples("drop", x, y, 20, 0.004); // controlled softness
-      })
-      
-      $el.on('mousedown', (e) => {
+      });
+
+      $el.on("mousedown", (e) => {
         const rect = $el[0].getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         $el.ripples("drop", x, y, 20, 0.05); // controlled softness
-      })
-
+      });
     }
-
 
     const drop = () => {
       const x = Math.random() * $el.width();
@@ -96,9 +96,10 @@ const RippleBackground = ({ children, className, background }) => {
       $el.ripples("drop", x, y, 20, 0.04);
     };
 
-    setTimeout(() => { drop() }, 1500)
+    setTimeout(() => {
+      drop();
+    }, 1500);
     let intervalId = setInterval(drop, isMobile ? 5000 : 7500);
-
 
     // Pause/resume logic
     const handleVisibilityChange = () => {
@@ -110,7 +111,6 @@ const RippleBackground = ({ children, className, background }) => {
         intervalId = setInterval(drop, isMobile ? 5000 : 7500);
       }
     };
-
 
     function handleBlur() {
       $el.ripples("pause");
@@ -125,7 +125,6 @@ const RippleBackground = ({ children, className, background }) => {
     document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("blur", handleBlur);
     window.addEventListener("focus", handleFocus);
-    
 
     return () => {
       if ($el.data("ripples")) {
@@ -137,7 +136,7 @@ const RippleBackground = ({ children, className, background }) => {
 
   return (
     <div
-      className={`relative w-full h-full bg-transparent z-[10] bg-cover bg-center ${className}`}
+      className={`relative z-[10] h-full w-full bg-transparent bg-cover bg-center ${className}`}
       ref={rippleRef}
       style={{
         width: "100%",
@@ -146,20 +145,29 @@ const RippleBackground = ({ children, className, background }) => {
         ...background,
       }}
     >
-      <div className={`absolute inset-0 bg-cover bg-center z-[-1] ${className}`} style={{...background}}/>
-      <div className="relative z-10">
-        {children}
-      </div>
-      <p className={`absolute right-1 bottom-1 invert text-sm md:text-base`}>
-          Photo by{" "}
-          <a target='_blank' className={`italic`}  href="https://unsplash.com/@jasonpofahlphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-            Jason Pofahl
-          </a>{" "}
-          on{" "}
-          <a target='_blank' className={`italic`}  href="https://unsplash.com/photos/brown-rocky-mountain-under-white-cloudy-sky-during-daytime-YU82HZASi6E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-            Unsplash
-          </a>
-        </p>
+      <div
+        className={`absolute inset-0 z-[-1] bg-cover bg-center ${className}`}
+        style={{ ...background }}
+      />
+      <div className="relative z-10">{children}</div>
+      <p className={`absolute right-1 bottom-1 text-sm invert md:text-base`}>
+        Photo by{" "}
+        <a
+          target="_blank"
+          className={`italic`}
+          href="https://unsplash.com/@jasonpofahlphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >
+          Jason Pofahl
+        </a>{" "}
+        on{" "}
+        <a
+          target="_blank"
+          className={`italic`}
+          href="https://unsplash.com/photos/brown-rocky-mountain-under-white-cloudy-sky-during-daytime-YU82HZASi6E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >
+          Unsplash
+        </a>
+      </p>
     </div>
   );
 };

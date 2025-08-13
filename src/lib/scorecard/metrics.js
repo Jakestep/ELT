@@ -1,8 +1,10 @@
 import dns from "node:dns";
-try { dns.setDefaultResultOrder("ipv4first"); } catch {}
+try {
+  dns.setDefaultResultOrder("ipv4first");
+} catch {}
 
 const KEY = process.env.NEXT_PSI_API_KEY;
-const UA  = "ELT-Scorecard/1.0";
+const UA = "ELT-Scorecard/1.0";
 
 export async function fetchFullMetrics(targetUrl) {
   const url = normalizeUrl(targetUrl);
@@ -12,7 +14,6 @@ export async function fetchFullMetrics(targetUrl) {
   ]);
   return { mobile: pick(mobile), desktop: pick(desktop) };
 }
-
 
 async function runPSI(url, strategy, opts = {}) {
   const { timeoutMs = 240000 } = opts;
@@ -25,7 +26,11 @@ async function runPSI(url, strategy, opts = {}) {
 
   let r;
   try {
-    r = await fetch(api, { signal: ac.signal, headers: { "User-Agent": UA }, cache: "no-store" });
+    r = await fetch(api, {
+      signal: ac.signal,
+      headers: { "User-Agent": UA },
+      cache: "no-store",
+    });
   } finally {
     clearTimeout(t);
   }
@@ -34,16 +39,24 @@ async function runPSI(url, strategy, opts = {}) {
   if (!r.ok) {
     let msg = text;
     console.log(msg);
-    try { msg = JSON.parse(text)?.error?.message || msg; } catch {}
+    try {
+      msg = JSON.parse(text)?.error?.message || msg;
+    } catch {}
     // Common misconfig surfaced clearly:
     if (/referer/i.test(msg) || /API_KEY_HTTP_REFERRER_BLOCKED/i.test(msg)) {
-      throw new Error("PSI key is restricted by HTTP referrers — create a server key with NO referrer restriction (API restriction = PageSpeed Insights).");
+      throw new Error(
+        "PSI key is restricted by HTTP referrers — create a server key with NO referrer restriction (API restriction = PageSpeed Insights).",
+      );
     }
     if (/api key not valid|keyInvalid/i.test(msg)) {
-      throw new Error("PSI API key not valid or missing PageSpeed Insights API restriction.");
+      throw new Error(
+        "PSI API key not valid or missing PageSpeed Insights API restriction.",
+      );
     }
     if (/billing/i.test(msg) || /quota|rate/i.test(msg)) {
-      throw new Error("PSI quota/billing issue. Enable billing or wait and try again.");
+      throw new Error(
+        "PSI quota/billing issue. Enable billing or wait and try again.",
+      );
     }
     if (/aborted|timeout/i.test(msg)) {
       throw new Error("PSI request timed out. Try again.");
@@ -71,9 +84,9 @@ function pick(r) {
   const audits = r?.lighthouseResult?.audits;
   return {
     perfScore: r?.lighthouseResult?.categories?.performance?.score ?? null, // 0..1
-    lcpMs: audits?.["largest-contentful-paint"]?.numericValue ?? null,      // ms
-    cls: audits?.["cumulative-layout-shift"]?.numericValue ?? null,         // unitless
-    tbtMs: audits?.["total-blocking-time"]?.numericValue ?? null,           // ms
+    lcpMs: audits?.["largest-contentful-paint"]?.numericValue ?? null, // ms
+    cls: audits?.["cumulative-layout-shift"]?.numericValue ?? null, // unitless
+    tbtMs: audits?.["total-blocking-time"]?.numericValue ?? null, // ms
   };
 }
 
