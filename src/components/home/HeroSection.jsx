@@ -34,14 +34,23 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.16 }}
-                className="mt-8 flex h-fit"
+                className="mt-8 flex h-fit w-fit gap-2 mx-auto flex-wrap"
               >
                 <Flip3DButton
+
+                  href="/scorecard"
+                  frontLabel={"My website is fine"}
+                  hoverLabel={"Grab my free scorecard"}
+                  frontClasses="bg-accent-800 text-white"
+                  hoverClasses="bg-accent-400 text-white"
+                />
+                <Flip3DButton
+                  className={` order-first sm:order-last`} 
                   href="/scorecard"
                   frontLabel={"What can be done?"}
-                  hoverLabel={"Grab my free scorecard"}
-                  frontClasses="bg-accent-600 text-white"
-                  hoverClasses="bg-accent-400 text-white"
+                  hoverLabel={"Book a free call"}
+                  frontClasses="bg-accent-600 text-accent-100"
+                  hoverClasses="bg-accent-900 text-white"
                 />
                 {/* <a
                   href="/scorecard"

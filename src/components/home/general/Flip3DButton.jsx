@@ -12,6 +12,7 @@ export default function Flip3DButton({
   hoverLabel,
   frontClasses,
   hoverClasses,
+  className,
   reverse = false,
   ...props
 }) {
@@ -19,7 +20,7 @@ export default function Flip3DButton({
     return (
       <Link
         href={href}
-        className="group relative mx-auto h-(--btn-height) w-(--btn-width) rounded-lg gap-2 overflow-clip px-8 py-4 text-nowrap [--btn-height:_calc(var(--spacing)_*_14)] [--btn-width:_calc(var(--spacing)_*_50)]"
+        className={`group relative mx-auto h-(--btn-height) w-(--btn-width) rounded-lg gap-2 overflow-clip px-8 py-4 text-nowrap [--btn-height:_calc(var(--spacing)_*_14)] [--btn-width:_calc(var(--spacing)_*_50)] ${className}`}
         {...props}
       >
         {/* First face */}
@@ -55,7 +56,8 @@ export default function Flip3DButton({
   return (
     <Link
       href={href}
-      className="group relative mx-auto h-(--btn-height) rounded-lg  w-(--btn-width) gap-2 overflow-clip px-8 py-4 text-nowrap [--btn-height:_calc(var(--spacing)_*_14)] [--btn-width:_calc(var(--spacing)_*_50)]"
+      className={`group relative mx-auto h-(--btn-height) rounded-lg  w-(--btn-width) gap-2 overflow-clip px-8 py-4 text-nowrap [--btn-height:_calc(var(--spacing)_*_14)] [--btn-width:_calc(var(--spacing)_*_50)] ${className}`}
+      {...props}
     >
       {/* First face */}
       <div

@@ -36,27 +36,17 @@ const RippleBackground = ({ children, className, background }) => {
     const $el = $(rippleRef.current);
 
     const shouldDisableRipples = () => {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      // const isTouch = "ontouchstart" in window;
-      // const isLowRes = window.innerWidth < 480;
-      // const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
-
-      // return prefersReducedMotion || isTouch || isLowRes || isMobile;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       return prefersReducedMotion;
     };
 
-    if (shouldDisableRipples()) {
-      return;
-    }
+    if (shouldDisableRipples() || !$el[0]) return;
 
     // Safe import after verifying conditions
     require("jquery.ripples");
 
     const isMobile = window.innerWidth < 640;
     const res = isMobile ? 256 : 512;
-    // const res = 512;
 
     $el.ripples({
       resolution: res,
@@ -64,75 +54,97 @@ const RippleBackground = ({ children, className, background }) => {
       perturbance: 0.03,
       interactive: false,
     });
-    // Manually handle soft taps
+
+    // User interactions
     if (isMobile) {
       $el.on("touchstart", (e) => {
-        const touch = e.touches[0]; // first finger
+        const touch = e.touches[0];
         const rect = $el[0].getBoundingClientRect();
         const x = touch.clientX - rect.left;
         const y = touch.clientY - rect.top;
-
-        $el.ripples("drop", x, y, 20, 0.05); // controlled softness
+        $el.ripples("drop", x, y, 20, 0.05);
       });
     } else {
       $el.on("mousemove", (e) => {
         const rect = $el[0].getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        $el.ripples("drop", x, y, 20, 0.004); // controlled softness
+        $el.ripples("drop", x, y, 20, 0.004);
       });
-
       $el.on("mousedown", (e) => {
         const rect = $el[0].getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        $el.ripples("drop", x, y, 20, 0.05); // controlled softness
+        $el.ripples("drop", x, y, 20, 0.05);
       });
     }
 
+    // Controlled random drops
     const drop = () => {
       const x = Math.random() * $el.width();
       const y = Math.random() * $el.height();
       $el.ripples("drop", x, y, 20, 0.04);
     };
 
-    setTimeout(() => {
-      drop();
-    }, 1500);
-    let intervalId = setInterval(drop, isMobile ? 5000 : 7500);
-
-    // Pause/resume logic
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        $el.ripples("pause");
+    let intervalId = null;
+    const startDrops = () => {
+      if (intervalId != null) return;
+      intervalId = setInterval(drop, isMobile ? 5000 : 7500);
+      try { $el.ripples("play"); } catch {}
+    };
+    const stopDrops = () => {
+      if (intervalId != null) {
         clearInterval(intervalId);
-      } else {
-        $el.ripples("play");
-        intervalId = setInterval(drop, isMobile ? 5000 : 7500);
+        intervalId = null;
       }
+      try { $el.ripples("pause"); } catch {}
     };
 
-    function handleBlur() {
-      $el.ripples("pause");
-      clearInterval(intervalId);
-    }
+    // Kickoff
+    const startAfter = setTimeout(() => {
+      drop();
+      startDrops();
+    }, 1500);
 
-    function handleFocus() {
-      $el.ripples("play");
-      intervalId = setInterval(drop, isMobile ? 5000 : 7500);
-    }
-
+    // Page Visibility (real backgrounding)
+    const handleVisibilityChange = () => {
+      if (document.hidden) stopDrops();
+      else startDrops();
+    };
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    window.addEventListener("blur", handleBlur);
-    window.addEventListener("focus", handleFocus);
+
+    // Optional: pause when scrolled off-screen (perf win)
+    let io;
+    if ("IntersectionObserver" in window) {
+      io = new IntersectionObserver(
+        (entries) => {
+          const visible = entries[0]?.isIntersecting;
+          if (visible && !document.hidden) startDrops();
+          else stopDrops();
+        },
+        { root: null, threshold: 0.01 }
+      );
+      io.observe($el[0]);
+    }
+
+    // iOS Safari lifecycle quirks
+    const onPageHide = () => stopDrops();
+    const onPageShow = () => { if (!document.hidden) startDrops(); };
+    window.addEventListener("pagehide", onPageHide);
+    window.addEventListener("pageshow", onPageShow);
 
     return () => {
-      if ($el.data("ripples")) {
-        $el.ripples("destroy");
-      }
-      clearInterval(intervalId);
+      clearTimeout(startAfter);
+      stopDrops();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pagehide", onPageHide);
+      window.removeEventListener("pageshow", onPageShow);
+      if (io) io.disconnect();
+      $el.off("touchstart mousemove mousedown");
+      if ($el.data("ripples")) $el.ripples("destroy");
     };
   }, []);
+
 
   return (
     <div
