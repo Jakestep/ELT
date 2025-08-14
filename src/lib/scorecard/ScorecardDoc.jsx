@@ -19,96 +19,35 @@ const COLORS = {
 
 /* ---------- Styles ---------- */
 const styles = StyleSheet.create({
-  page: {
-    padding: 36,
-    color: COLORS.text,
-    fontSize: 11,
-    fontFamily: "Helvetica",
-  },
+  page: { padding: 36, color: COLORS.text, fontSize: 11, fontFamily: "Helvetica" },
   h1: { fontSize: 20, color: COLORS.primary, marginBottom: 6, fontWeight: 700 },
-  h2: {
-    fontSize: 14,
-    color: COLORS.primary,
-    marginTop: 18,
-    marginBottom: 6,
-    fontWeight: 700,
-  },
+  h2: { fontSize: 14, color: COLORS.primary, marginTop: 18, marginBottom: 6, fontWeight: 700 },
   p: { marginBottom: 6, lineHeight: 1.4 },
   small: { fontSize: 9, color: COLORS.muted },
-  pill: {
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    backgroundColor: COLORS.surface,
-    borderRadius: 6,
-    textAlign: "center",
-    fontWeight: 700,
-  },
-  box: {
-    borderWidth: 1,
-    borderColor: COLORS.primary,
-    backgroundColor: "#fff",
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 10,
-  },
-  softBox: {
-    backgroundColor: COLORS.surface,
-    borderRadius: 8,
-    padding: 10,
-    marginBottom: 10,
-  },
+  pill: { paddingVertical: 6, paddingHorizontal: 10, backgroundColor: COLORS.surface, borderRadius: 6, textAlign: "center", fontWeight: 700 },
+  box: { borderWidth: 1, borderColor: COLORS.primary, backgroundColor: "#fff", borderRadius: 8, padding: 12, marginBottom: 10 },
+  softBox: { backgroundColor: COLORS.surface, borderRadius: 8, padding: 10, marginBottom: 10 },
   row: { flexDirection: "row", gap: 8 },
   col: { flex: 1 },
 
   /* --- table fixes --- */
-  table: {
-    borderWidth: 1,
-    borderColor: COLORS.primary,
-    borderRadius: 8,
-    overflow: "hidden",
-    marginBottom: 10,
-  },
+  table: { borderWidth: 1, borderColor: COLORS.primary, borderRadius: 8, overflow: "hidden", marginBottom: 10 },
   tr: { flexDirection: "row" },
-  th: {
-    flex: 1,
-    backgroundColor: COLORS.surface,
-    color: COLORS.primary,
-    padding: 8,
-    fontWeight: 700,
-    borderRightWidth: 1,
-    borderRightColor: COLORS.primary,
-  },
+  th: { flex: 1, backgroundColor: COLORS.surface, color: COLORS.primary, padding: 8, fontWeight: 700, borderRightWidth: 1, borderRightColor: COLORS.primary },
   thFirst: { borderTopLeftRadius: 8 }, // NEW
   thLast: { borderTopRightRadius: 8, borderRightWidth: 0 }, // NEW
-  td: {
-    flex: 1,
-    padding: 8,
-    borderTopWidth: 1,
-    borderTopColor: COLORS.primary,
-    borderRightWidth: 1,
-    borderRightColor: COLORS.primary,
-  },
+  td: { flex: 1, padding: 8, borderTopWidth: 1, borderTopColor: COLORS.primary, borderRightWidth: 1, borderRightColor: COLORS.primary },
   tdLast: { borderRightWidth: 0 },
   center: { textAlign: "center" },
-  footer: {
-    marginTop: 18,
-    paddingTop: 10,
-    borderTopWidth: 1,
-    borderTopColor: COLORS.border,
-    color: COLORS.muted,
-    fontSize: 9,
-    textAlign: "center",
-  },
+  footer: { marginTop: 18, paddingTop: 10, borderTopWidth: 1, borderTopColor: COLORS.border, color: COLORS.muted, fontSize: 9, textAlign: "center" },
 });
 
+
 /* ---------- Helpers ---------- */
-const safe = (v, fallback = "—") =>
-  v === null || v === undefined || Number.isNaN(v) ? fallback : v;
-const pct = (score0to1) =>
-  score0to1 == null ? "—" : String(Math.round(score0to1 * 100));
+const safe = (v, fallback = "—") => (v === null || v === undefined || Number.isNaN(v) ? fallback : v);
+const pct = (score0to1) => (score0to1 == null ? "—" : String(Math.round(score0to1 * 100)));
 const ms = (v) => (v == null ? "—" : `${Math.round(v)} ms`);
-const s = (v) =>
-  v == null ? "—" : `${(v / 1000).toFixed(v >= 1000 ? 1 : 2)} s`;
+const s = (v) => (v == null ? "—" : `${(v / 1000).toFixed(v >= 1000 ? 1 : 2)} s`);
 
 function computeOverall(metrics) {
   if (!metrics) return 0;
@@ -118,9 +57,7 @@ function computeOverall(metrics) {
   const desktopPerf = (d.perfScore ?? 0) * 100;
   const lcpScore = m.lcpMs == null ? 0 : lcpToScore(m.lcpMs);
   const clsScore = m.cls == null ? 0 : clsToScore(m.cls);
-  const overall = Math.round(
-    0.45 * mobilePerf + 0.25 * desktopPerf + 0.2 * lcpScore + 0.1 * clsScore,
-  );
+  const overall = Math.round(0.45 * mobilePerf + 0.25 * desktopPerf + 0.2 * lcpScore + 0.1 * clsScore);
   return Math.max(0, Math.min(100, overall));
 }
 function lcpToScore(msVal) {
@@ -201,14 +138,7 @@ function quickWins(goal, m = {}, d = {}) {
 }
 
 /* ---------- Component ---------- */
-export default function ScorecardDoc({
-  name,
-  email,
-  url,
-  goal,
-  metrics,
-  createdAt,
-}) {
+export default function ScorecardDoc({ name, email, url, goal, metrics, createdAt }) {
   const m = metrics?.mobile || {};
   const d = metrics?.desktop || {};
   const overall = computeOverall(metrics);
@@ -218,22 +148,15 @@ export default function ScorecardDoc({
     <Document>
       <Page size="LETTER" style={styles.page}>
         {/* Title */}
-        <Text style={styles.h1}>Website Efficiency Scorecard</Text>
-        <Text style={styles.p}>
-          This report shows how your site is doing and what to fix first.
-          Simple, clear, and ready to use today.
-        </Text>
+        <Text style={styles.h1}>Business Efficiency Scorecard</Text>
+        <Text style={styles.p}>This report shows how your site is doing and what to fix first. Simple, clear, and ready to use today.</Text>
 
         {/* Summary */}
         <View style={styles.box}>
-          <Text style={[styles.center, { fontSize: 14, fontWeight: 700 }]}>
-            Overall Score: {overall}/100
-          </Text>
+          <Text style={[styles.center, { fontSize: 14, fontWeight: 700 }]}>Overall Score: {overall}/100</Text>
           <Text style={[styles.center, styles.small]}>{url}</Text>
           <Text style={[styles.center, styles.small]}>
-            For: {name}
-            {email ? ` · ${email}` : ""}
-            {createdAt ? ` · ${new Date(createdAt).toLocaleDateString()}` : ""}
+            For: {name}{email ? ` · ${email}` : ""}{createdAt ? ` · ${new Date(createdAt).toLocaleDateString()}` : ""}
           </Text>
           <Text style={[styles.center, styles.small]}>Goal: {goal || "—"}</Text>
         </View>
@@ -241,12 +164,9 @@ export default function ScorecardDoc({
         {/* Performance */}
         <Text style={styles.h2}>Speed & Stability</Text>
 
-        {!metrics || (!metrics.mobile && !metrics.desktop) ? (
+        {(!metrics || (!metrics.mobile && !metrics.desktop)) ? (
           <View style={styles.softBox}>
-            <Text style={styles.p}>
-              We couldn’t load the numbers this time. That’s okay — your plan
-              below still helps.
-            </Text>
+            <Text style={styles.p}>We couldn’t load the numbers this time. That’s okay — your plan below still helps.</Text>
           </View>
         ) : (
           <>
@@ -260,9 +180,7 @@ export default function ScorecardDoc({
               <View style={styles.tr}>
                 <Text style={styles.td}>Performance score (0–100)</Text>
                 <Text style={styles.td}>{pct(m.perfScore)}</Text>
-                <Text style={[styles.td, styles.tdLast]}>
-                  {pct(d.perfScore)}
-                </Text>
+                <Text style={[styles.td, styles.tdLast]}>{pct(d.perfScore)}</Text>
               </View>
 
               <View style={styles.tr}>
@@ -286,20 +204,15 @@ export default function ScorecardDoc({
 
             {/* Why it matters per metric */}
             <View style={styles.softBox}>
-              <Text style={{ fontWeight: 700, marginBottom: 4 }}>
-                Why these matter
+              <Text style={{ fontWeight: 700, marginBottom: 4 }}>Why these matter</Text>
+              <Text style={styles.p}>
+                <Text style={{ fontWeight: 700 }}>LCP:</Text> shows how fast the biggest thing shows up. Slow LCP makes people leave.
               </Text>
               <Text style={styles.p}>
-                <Text style={{ fontWeight: 700 }}>LCP:</Text> shows how fast the
-                biggest thing shows up. Slow LCP makes people leave.
+                <Text style={{ fontWeight: 700 }}>CLS:</Text> shows how much the page jumps. Jumping pages feel broken.
               </Text>
               <Text style={styles.p}>
-                <Text style={{ fontWeight: 700 }}>CLS:</Text> shows how much the
-                page jumps. Jumping pages feel broken.
-              </Text>
-              <Text style={styles.p}>
-                <Text style={{ fontWeight: 700 }}>TBT:</Text> shows when the
-                page is too busy to listen. Big TBT makes clicks feel laggy.
+                <Text style={{ fontWeight: 700 }}>TBT:</Text> shows when the page is too busy to listen. Big TBT makes clicks feel laggy.
               </Text>
             </View>
           </>
@@ -319,42 +232,27 @@ export default function ScorecardDoc({
           </View>
         ) : (
           <View style={styles.softBox}>
-            <Text style={styles.p}>
-              Nice work — no big issues found. A short audit can still find
-              small wins.
-            </Text>
+            <Text style={styles.p}>Nice work — no big issues found. A short audit can still find small wins.</Text>
           </View>
         )}
 
         {/* Simple guidance */}
         <Text style={styles.h2}>How to think about this</Text>
         <View style={styles.softBox}>
-          <Text style={styles.p}>
-            • Fix phone (mobile) first. Most people visit on phones.
-          </Text>
-          <Text style={styles.p}>
-            • Make pictures lighter and load extra stuff later.
-          </Text>
-          <Text style={styles.p}>
-            • Use one clear button at the top that says what happens next.
-          </Text>
+          <Text style={styles.p}>• Fix phone (mobile) first. Most people visit on phones.</Text>
+          <Text style={styles.p}>• Make pictures lighter and load extra stuff later.</Text>
+          <Text style={styles.p}>• Use one clear button at the top that says what happens next.</Text>
         </View>
 
         {/* CTA */}
         <View style={{ marginTop: 8 }}>
           <Text style={styles.h2}>Next Step</Text>
-          <Text style={styles.p}>
-            Want a clear one‑page plan with exact fixes and mockups?
-          </Text>
-          <Text style={styles.pill}>
-            Book the $197 Audit and we’ll map it out for you.
-          </Text>
+          <Text style={styles.p}>Want a clear one‑page plan with exact fixes and mockups?</Text>
+          <Text style={styles.pill}>Book the $197 Audit and we’ll map it out for you.</Text>
         </View>
 
         {/* Footer */}
-        <Text style={styles.footer}>
-          EverLessTech — Less tech, more life · everlesstech.com
-        </Text>
+        <Text style={styles.footer}>EverLessTech — Less tech, more life · everlesstech.com</Text>
       </Page>
     </Document>
   );
