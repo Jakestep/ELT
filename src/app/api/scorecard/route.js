@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { sendfoxUpsertContact } from "@/lib/sendfox";
 import { quickHead, fetchFullMetrics } from "@/lib/scorecard/metrics";
 import { generatePdf } from "@/lib/scorecard/pdf";
 import { sendScorecardEmail } from "@/lib/scorecard/actions"; // will use attachment
+import handleCreateSubscriber from "@/lib/mailerlite";
 // import { storePdf } from "@/lib/scorecard/actions"; // optional archive
 
 export const runtime = "nodejs";
@@ -35,19 +35,20 @@ export async function POST(req) {
   }
 
   // ➋ Kick off your background job (PSI → PDF → Resend initial email w/ attachment)
-  await runInBackground({ name, email, url, goal, frustration }).catch(
-    console.error,
-  ); // TODO: remove await in production
+  if (process.env.NODE_ENV == 'development') {
+    await runInBackground({ name, email, url, goal, frustration }).catch(
+      console.error
+    );
+  } else {
+    runInBackground({ name, email, url, goal, frustration }).catch(
+      console.error
+    );
+  }
 
-  // ➊ Add/Update in SendFox list (blocking, so you know they’re subscribed)
+
+  // ➊ Add/Update in Mailerlite list (blocking, so you know they’re subscribed)
   try {
-    await sendfoxUpsertContact({
-      email,
-      first_name: name,
-      ip: req.headers.get("x-forwarded-for") || undefined,
-      listIds: [process.env.NEXT_SENDFOX_LIST_ID],
-      tags: ["scorecard", goal, frustration], // e.g., "Save time"
-    });
+    await handleCreateSubscriber({name, email, url, goal, frustration})
   } catch (e) {
     console.error("SendFox subscribe failed:", e);
     return NextResponse.json(

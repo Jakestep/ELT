@@ -111,7 +111,10 @@ const RippleBackground = ({ children, className, background }) => {
       if (document.hidden) stopDrops();
       else startDrops();
     };
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    document.addEventListener("blur", stopDrops);
+    document.addEventListener("focus", startDrops);
 
     // Optional: pause when scrolled off-screen (perf win)
     let io;

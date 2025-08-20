@@ -18,7 +18,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl font-bold text-gray-900 drop-shadow-sm md:text-6xl"
               >
-                Tech terrors giving you the cold sweats?
+                Empty weekends and empty pockets?
               </motion.h1>
 
               <motion.p
@@ -27,7 +27,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.08 }}
                 className="mx-auto mt-4 max-w-3xl text-xl text-gray-800 md:text-gray-700"
               >
-                It doesn't have to be this way.
+                It's not you, it's your website.
               </motion.p>
 
               <motion.div
@@ -46,7 +46,7 @@ const HeroSection = () => {
                 />
                 <Flip3DButton
                   className={` order-first sm:order-last`} 
-                  href="/scorecard"
+                  href="/book"
                   frontLabel={"What can be done?"}
                   hoverLabel={"Book a free call"}
                   frontClasses="bg-accent-600 text-accent-100"

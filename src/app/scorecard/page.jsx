@@ -34,7 +34,7 @@ export default function ScorecardPage() {
     setStatus({ ok: false, msg: "" });
 
     const controller = new AbortController();
-    const t = setTimeout(() => controller.abort(), 20000);
+    const t = setTimeout(() => controller.abort(), 30000);
 
     try {
       const res = await fetch("/api/scorecard", {
@@ -72,7 +72,7 @@ export default function ScorecardPage() {
     } catch (err) {
       const msg =
         err.name === "AbortError"
-          ? "This is taking too long (20s). Please try again."
+          ? "This is taking too long (30s). Please try again."
           : err.message || "Something went wrong. Please try again.";
       setStatus({ ok: false, msg });
     }
