@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
         {/* Single, consistent CTA */}
         <div className="mt-10 text-center">
           <a
-            href="/scorecard"
+            href="/venue/scorecard"
             className="inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white hover:opacity-90 focus:ring-2 focus:ring-black/30 focus:outline-none"
           >
             Get My Free Scorecard

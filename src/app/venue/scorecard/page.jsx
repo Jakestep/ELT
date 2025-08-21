@@ -65,7 +65,7 @@ export default function ScorecardPage() {
 
       // Redirect after a short pause (optional)
       setTimeout(() => {
-        router.push("/audit"); // or your audit funnel page
+        router.push("/venue/audit"); // or your audit funnel page
       }, 2000);
 
       reset();
@@ -104,10 +104,10 @@ export default function ScorecardPage() {
                   frontClasses={'bg-accent-800 text-accent-100'}
                   hoverLabel={'Not to worry, friend'}
                   hoverClasses={'bg-accent-600 text-white'}
-                  href='/book'
+                  href='/venue/book'
                 />
               </div>
-              <Link href='/book' className={`underline flex items-center justify-center mt-2 italic md:hidden text-lg`} >I don't have a website..</Link>
+              <Link href='/venue/book' className={`underline flex items-center justify-center mt-2 italic md:hidden text-lg`} >I don't have a website..</Link>
             </header>
             {/* Card */}
             <div className="mt-5 rounded-2xl border border-black/5 bg-white/70 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.12)]">

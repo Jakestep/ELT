@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import ScorecardEmail from "@/emails/ScorecardEmail";
 import { makeOfferToken } from "../offer-token";
+import { siteURL } from "@/helpers";
 
 const supabase = createClient(
   process.env.NEXT_SUPABASE_URL,
@@ -31,7 +32,7 @@ export async function sendScorecardEmail({
 
   const t = makeOfferToken({ email, ttlHours: 36 });
 
-  const auditUrl = `${process.env.NEXT_SITE_URL}/api/scorecard/offer?t=${t}&next=/audit`;
+  const auditUrl = `${siteURL}/api/scorecard/offer?t=${t}&next=/venue/audit`;
 
   // pass auditUrl into your React Email template <Button href={auditUrl} />
 
@@ -54,7 +55,7 @@ export async function sendScorecardEmail({
 
 function textFallback({
   name = "friend",
-  auditUrl = "https://everlesstech.com/audit",
+  auditUrl = "https://everlesstech.com/venue/audit",
 }) {
   return [
     `You = The 💣`,

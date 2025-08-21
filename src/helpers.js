@@ -1,0 +1,1 @@
+export const siteURL = process.env.NODE_ENV == 'production' ? process.env.NEXT_SITE_URL_PROD : process.env.NXT_SITE_URL_DEV

@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
           {/* <Header
             className={`h-(--header-height) sticky z-[50]`} 
           /> */}
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow"><div className={``}>{children}</div></main>
           <Footer />
           <Analytics />
         </div>

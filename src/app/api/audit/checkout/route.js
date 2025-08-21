@@ -1,4 +1,5 @@
 // app/api/checkout/route.js
+import { siteURL } from "@/helpers";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -13,7 +14,7 @@ function readOfferCookie(headers) {
 }
 
 export async function POST(req) {
-  return NextResponse.json({ url: `${process.env.NEXT_SITE_URL}/audit`})
+
   const body = await req.json().catch(() => ({}));
   const priceStandard = process.env.STRIPE_PRICE_297;
   const priceDiscount = process.env.STRIPE_PRICE_197;
@@ -25,8 +26,8 @@ export async function POST(req) {
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [{ price: use197 ? priceDiscount : priceStandard, quantity: 1 }],
-    success_url: `${process.env.NEXT_SITE_URL}/thanks?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${process.env.NEXT_SITE_URL}/audit`,
+    success_url: `${siteURL}/thanks?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${siteURL}/venue/audit`,
   });
 
   return NextResponse.json({ url: session.url }, { status: 200 });

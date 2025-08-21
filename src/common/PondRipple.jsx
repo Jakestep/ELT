@@ -46,12 +46,16 @@ const RippleBackground = ({ children, className, background }) => {
     require("jquery.ripples");
 
     const isMobile = window.innerWidth < 640;
-    const res = isMobile ? 256 : 512;
-
+    const tooBig = window.innerWidth > 1950;
+    let res = 512;
+    if (isMobile) {res = 256}
+    if (tooBig) {res = 256;}
+    const drop_radius = isMobile ? 35 : 20;
+    const touch_perturbance = isMobile ? 0.07 : 0.05
     $el.ripples({
       resolution: res,
-      dropRadius: 20,
-      perturbance: 0.03,
+      dropRadius: drop_radius,
+      perturbance: touch_perturbance,
       interactive: false,
     });
 
@@ -62,20 +66,20 @@ const RippleBackground = ({ children, className, background }) => {
         const rect = $el[0].getBoundingClientRect();
         const x = touch.clientX - rect.left;
         const y = touch.clientY - rect.top;
-        $el.ripples("drop", x, y, 20, 0.05);
+        $el.ripples("drop", x, y, drop_radius, touch_perturbance);
       });
     } else {
       $el.on("mousemove", (e) => {
         const rect = $el[0].getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        $el.ripples("drop", x, y, 20, 0.004);
+        $el.ripples("drop", x, y, drop_radius, 0.004);
       });
       $el.on("mousedown", (e) => {
         const rect = $el[0].getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        $el.ripples("drop", x, y, 20, 0.05);
+        $el.ripples("drop", x, y, drop_radius, touch_perturbance);
       });
     }
 
@@ -83,7 +87,7 @@ const RippleBackground = ({ children, className, background }) => {
     const drop = () => {
       const x = Math.random() * $el.width();
       const y = Math.random() * $el.height();
-      $el.ripples("drop", x, y, 20, 0.04);
+      $el.ripples("drop", x, y, drop_radius, 0.04);
     };
 
     let intervalId = null;
@@ -112,9 +116,19 @@ const RippleBackground = ({ children, className, background }) => {
       else startDrops();
     };
 
+    const stopAutoDrops = () => {
+      if (intervalId != null) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    }
+    const startAutoDrops = () => {
+      startDrops();
+    }
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    document.addEventListener("blur", stopDrops);
-    document.addEventListener("focus", startDrops);
+    window.addEventListener("blur", stopAutoDrops);
+    window.addEventListener("focus", startAutoDrops);
 
     // Optional: pause when scrolled off-screen (perf win)
     let io;
@@ -140,6 +154,8 @@ const RippleBackground = ({ children, className, background }) => {
       clearTimeout(startAfter);
       stopDrops();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.addEventListener("blur", stopAutoDrops);
+      window.addEventListener("focus", startAutoDrops);
       window.removeEventListener("pagehide", onPageHide);
       window.removeEventListener("pageshow", onPageShow);
       if (io) io.disconnect();

@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 export async function GET(req) {
   const url = new URL(req.url);
   const t = url.searchParams.get("t");
-  const next = url.searchParams.get("next") || "/audit";
+  const next = url.searchParams.get("next") || "/venue/audit";
 
   const redirect = (path) => NextResponse.redirect(path.startsWith("http") ? path : `${url.origin}${path}`);
 

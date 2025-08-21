@@ -24,7 +24,7 @@ const COLORS = {
 
 export default function ScorecardEmail({
   name = "friend",
-  auditUrl = "https://everlesstech.com/audit",
+  auditUrl = "https://everlesstech.com/venue/audit",
   logo28 = "https://everlesstech.com/email/eltlogo-56.png",
   logo20 = "https://everlesstech.com/email/eltlogo-20.png",
 }) {

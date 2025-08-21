@@ -3,6 +3,7 @@ import StorySection from "../../components/about/StorySection";
 import ValuesSection from "../../components/about/ValuesSection";
 import ExpertiseSection from "../../components/about/ExpertiseSection";
 import CtaSection from "../../common/CtaSection";
+import Header from "@/components/Header";
 
 // app/about/page.js
 export const metadata = {
@@ -58,6 +59,7 @@ export const metadata = {
 export default function About() {
   return (
     <>
+      <Header />
       <AboutHero />
       <StorySection />
       <ValuesSection />
