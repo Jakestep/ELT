@@ -8,7 +8,7 @@ const ContactHero = () => {
         className={`h-full w-full bg-cover bg-top bg-no-repeat py-20`}
         background={{
           backgroundImage:
-            'url("/blur-jason-pofahl-YU82HZASi6E-unsplash-0.5x.webp")',
+            'url("/organs-0.5x.webp")',
         }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

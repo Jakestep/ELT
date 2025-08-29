@@ -16,6 +16,8 @@
   --background: #f0f4f8;
   --surface: #d9e2ec;
   --text: #1f2937;
+  --footer-height: calc(var(--spacing) * 20);
+  --header-height: 0px;
 
   /* Colors taken from the mountains */
   --thistle: hsla(281, 31%, 82%, 1);
@@ -24,8 +26,8 @@
   --glaucous: hsla(233, 31%, 59%, 1);
   --mountbatten-pink: hsla(339, 12%, 54%, 1);
 
-  --main-background: url("/blur-jason-pofahl-YU82HZASi6E-unsplash.webp");
-  --main-background-2: url("/blur-jason-pofahl-YU82HZASi6E-unsplash-0.5x.webp");
+  --main-background: url("/organs.webp");
+  --main-background-2: url("/organs-0.5x.webp");
 }
 
 @theme inline {

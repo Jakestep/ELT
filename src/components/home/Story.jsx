@@ -2,7 +2,7 @@
 export default function Story({
   eyebrow = "Our story",
   title = "Less tech, more life.",
-  intro = "EverLessTech exists to remove digital friction for real businesses. We ship fast, simple sites that are easy to own and easier to love.",
+  intro = "EverLessTech exists to remove digital friction for real businesses, and more importantly, the people behind them. We ship fast, simple sites that are easy to own and easier to love.",
   items = [
     {
       icon: "spark",

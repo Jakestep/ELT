@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import ClientEmail from "./ClientEmail";
 
+const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 
 export async function submitContactForm(_, formData) {
   const name = formData.get("name");
