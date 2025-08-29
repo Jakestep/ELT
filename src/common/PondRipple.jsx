@@ -48,10 +48,10 @@ const RippleBackground = ({ children, className, background }) => {
     const isMobile = window.innerWidth < 640;
     const tooBig = window.innerWidth > 1950;
     let res = 512;
-    if (isMobile) {res = 256}
+    if (isMobile) {res = 128}
     if (tooBig) {res = 256;}
-    const drop_radius = isMobile ? 35 : 20;
-    const touch_perturbance = isMobile ? 0.07 : 0.05
+    const drop_radius = isMobile ? 20 : 20;
+    const touch_perturbance = isMobile ? 0.05 : 0.05
     $el.ripples({
       resolution: res,
       dropRadius: drop_radius,

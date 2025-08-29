@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function SoftTimer({ startSeconds = 900 }) {
+export default function SoftTimer({ startSeconds = 300 }) {
   const [seconds, setSeconds] = useState(startSeconds);
   const [pinned, setPinned] = useState(false);
   const anchorRef = useRef(null);
