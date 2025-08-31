@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import RippleBackground from "@/common/PondRipple";
 import Flip3DButton from "../home/general/Flip3DButton";
+import SafeIcon from "@/common/SafeIcon";
 
 const HeroSection = () => {
   return (
@@ -53,16 +54,18 @@ const HeroSection = () => {
                   href="/about"
                   frontLabel={"I don't trust you"}
                   hoverLabel={"About Us"}
-                  frontClasses="bg-accent-800 text-white"
-                  hoverClasses="bg-accent-400 text-white"
+                  frontClasses=" bg-linear-to-br sm:bg-linear-to-l from-accent-400 to-accent-700 text-white"
+                  hoverClasses=" bg-linear-to-r from-accent-400 to-accent-700 text-white"
                 />
                 <Flip3DButton
-                  className="order-first sm:order-last"
-                  href="/venue/book"
-                  frontLabel={"What do you do?"}
-                  hoverLabel={"View our services"}
-                  frontClasses="bg-accent-600 text-accent-100"
-                  hoverClasses="bg-accent-900 text-white"
+                  className=""
+                  reverse
+                  href="/scorecard"
+                  frontLabel={"My website is fine"}
+                  hoverLabel={"Free scorecard?"}
+                  mobileLabel={<span className={`flex bg-linear-to-tr items-center gap-2`} >Free Scorecard <SafeIcon name={'ArrowRight'}/></span>}
+                  frontClasses="bg-linear-to-r sm:bg-linear-to-r from-accent-400 to-accent-700 text-accent-100"
+                  hoverClasses="bg-linear-to-r from-accent-700 to-accent-400 text-white"
                 />
               </motion.div>
             </div>

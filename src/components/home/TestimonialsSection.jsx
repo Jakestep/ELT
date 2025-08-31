@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
         <div className="mt-10 text-center">
           <a
             href="/scorecard"
-            className="inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white hover:opacity-90 focus:ring-2 focus:ring-black/30 focus:outline-none"
+            className="inline-flex items-center justify-center rounded-md bg-[linear-gradient(to_right,var(--color-accent-800)_0,_var(--color-accent-400)_8.5ch,_var(--color-accent-400)_11ch,_var(--color-accent-800))] px-6 py-3 text-base font-medium text-white hover:scale-105 relative bottom-0 scale-100 hover:bottom-1 hover:shadow-xl transition-all focus:ring-2 focus:ring-black/30 focus:outline-none"
           >
             Get My Free Scorecard
           </a>

@@ -1,3 +1,6 @@
+import SafeIcon from "@/common/SafeIcon";
+import { FaCoffee } from "react-icons/fa";
+
 // app/components/Story.jsx
 export default function Story({
   eyebrow = "Our story",
@@ -5,25 +8,25 @@ export default function Story({
   intro = "EverLessTech exists to remove digital friction for real businesses, and more importantly, the people behind them. We ship fast, simple sites that are easy to own and easier to love.",
   items = [
     {
-      icon: "spark",
-      heading: "It started local",
+      name: "Brain",
+      heading: "It started with stress",
       text:
-        "We saw founders and nonprofits stuck with clunky sites and no support. So we built a studio that speaks human first, tech second.",
+        "We felt overwhelmed by all of the technology around us, moving so fast with nobody taking to time to make things actually run smooth.",
     },
     {
-      icon: "leaf",
+      name: "Leaf",
       heading: "Simplicity over noise",
       text:
         "Every decision favors clarity, speed, and maintainability. No vendor lock‑in, no mystery meat navigation, no bloat.",
     },
     {
-      icon: "bolt",
+      name: "Coffee", // have this use the FaCoffee version
       heading: "Results you can feel",
       text:
         "Cleaner UX, faster pages, and clearer messaging—from first click to contact. Launch quickly, iterate responsibly.",
     },
   ],
-  cta = { label: "See how we work", href: "/services" },
+  cta = { label: "Sounds relaxing", href: "/book" },
 }) {
   return (
     <section
@@ -72,7 +75,7 @@ export default function Story({
                 <div className="relative">
                   <span className="absolute -left-[0.35rem] top-3 hidden h-2 w-2 rounded-full bg-primary-200 sm:block" />
                   <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent-100 ring-1 ring-inset ring-accent-200 sm:h-10 sm:w-10">
-                    <SVG icon={item.icon} className="h-5 w-5 text-accent-700" />
+                    <SafeIcon {...item} className="h-5 w-5 text-accent-700" />
                   </span>
                 </div>
 
