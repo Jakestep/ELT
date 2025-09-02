@@ -35,7 +35,7 @@ const StorySection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="rounded-lg bg-gray-100 p-8">
-            <div className="auto-rows-subgrid grid grid-cols-[auto_1fr] gap-x-4 gap-y-4">
+            <div className="auto-rows-subgrid grid grid-cols-[auto_1fr] gap-x-4 gap-y-12">
               {storyData.map((item, idx) => (
                 <StoryComponent key={idx} {...item} />
               ))}

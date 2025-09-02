@@ -30,10 +30,10 @@ const Header = ({ className }) => {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
+    // { name: "Services", href: "/services" },
     // { name: "Portfolio", href: "/portfolio" },
     // { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    // { name: "Book a FREE consultation", href: "/book" },
   ];
 
   const isActive = (path) => pathname === path;
@@ -95,7 +95,7 @@ const Header = ({ className }) => {
 
   return (
     <header
-      className={`top-0 right-0 left-0 border-b border-gray-100 shadow-sm ${className}`}
+      className={`sticky z-[999] bg-background top-0 right-0 left-0 border-b border-gray-100 shadow-sm ${className}`}
     >
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -147,7 +147,7 @@ const Header = ({ className }) => {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/book"
               className="bg-accent-600 hover:bg-accent-700 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
             >
               Get Started

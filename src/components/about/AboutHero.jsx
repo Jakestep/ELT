@@ -26,8 +26,7 @@ const AboutHero = () => {
               transition={{ delay: 0.1 }}
               className="mx-auto max-w-3xl text-xl text-gray-600"
             >
-              Dedicated to delivering exceptional software solutions that create
-              lasting value for our clients.
+              Dedicated to you. More leads, with less stress, in less time.
               <br />
               <span className="text-accent-600 italic">
                 Less tech, more life.

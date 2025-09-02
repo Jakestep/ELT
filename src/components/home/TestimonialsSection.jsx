@@ -93,9 +93,6 @@ export default function TestimonialsSection() {
           >
             Get My Free Scorecard
           </a>
-          <p className="mt-2 text-sm text-gray-500">
-            No spam. One‑click unsubscribe.
-          </p>
         </div>
       </div>
     </section>

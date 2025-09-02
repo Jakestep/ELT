@@ -54,13 +54,6 @@ const ContactForm = () => {
     "Other",
   ];
 
-  const budgetRanges = [
-    "Under $5,000",
-    "$5,000 - $10,000",
-    "$10,000 - $20,000",
-    "$20,000+",
-  ];
-
   const timelines = [
     "ASAP",
     "Within 1 month",
@@ -156,26 +149,6 @@ const ContactForm = () => {
                     ))}
                   </select>
                 </div>
-                <div>
-                  <label
-                    htmlFor="budget"
-                    className="mb-2 block text-sm font-medium text-gray-700"
-                  >
-                    Budget Range
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
-                  >
-                    <option value="">Select budget range</option>
-                    {budgetRanges.map((range, index) => (
-                      <option key={index} value={range}>
-                        {range}
-                      </option>
-                    ))}
-                  </select>
-                </div>
               </div>
 
               <div>
@@ -204,7 +177,7 @@ const ContactForm = () => {
                   htmlFor="message"
                   className="mb-2 block text-sm font-medium text-gray-700"
                 >
-                  Project Description *
+                  Pain Points *
                 </label>
                 <textarea
                   id="message"
@@ -212,7 +185,7 @@ const ContactForm = () => {
                   required
                   rows={6}
                   className="focus:ring-accent-500 w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2"
-                  placeholder="Tell us about your project, goals, and any specific requirements..."
+                  placeholder="Tell us what's holding you back..."
                 />
               </div>
 

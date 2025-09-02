@@ -7,7 +7,7 @@ const StoryComponent = ({ icon, title, text }) => (
     </div>
     <div className="row-span-2 grid grid-rows-[auto_1fr]">
       <h3 className="text-accent-600 mb-1 text-lg font-semibold">{title}</h3>
-      <p className="text-sm text-gray-700">{text}</p>
+      <p className="text-sm text-gray-700 leading-loose">{text}</p>
     </div>
   </>
 );

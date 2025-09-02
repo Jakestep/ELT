@@ -62,7 +62,7 @@ const HeroSection = () => {
                   reverse
                   href="/scorecard"
                   frontLabel={"My website is fine"}
-                  hoverLabel={"Free scorecard?"}
+                  hoverLabel={"Free scorecard ->"}
                   mobileLabel={<span className={`flex bg-linear-to-tr items-center gap-2`} >Free Scorecard <SafeIcon name={'ArrowRight'}/></span>}
                   frontClasses="bg-linear-to-r sm:bg-linear-to-r from-accent-400 to-accent-700 text-accent-100"
                   hoverClasses="bg-linear-to-r from-accent-700 to-accent-400 text-white"
