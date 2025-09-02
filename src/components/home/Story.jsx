@@ -1,32 +1,32 @@
 import SafeIcon from "@/common/SafeIcon";
-import { FaCoffee } from "react-icons/fa";
 
 // app/components/Story.jsx
 export default function Story({
-  eyebrow = "Our story",
-  title = "Less tech, more life.",
-  intro = "EverLessTech exists to remove digital friction for real businesses, and more importantly, the people behind them. We ship fast, simple sites that are easy to own and easier to love.",
+  eyebrow = "Why EverLessTech?",
+  title = "Less Tech. More life.",
+  intro = "EverLessTech makes simple, speedy websites that help your business run smoother. We take away the hard stuff so you can do more of what you love. No stress. No waiting. Just easy tech that helps real people every day.",
   items = [
     {
-      name: "Brain",
-      heading: "It started with stress",
+      icon: "FiZap",
+      heading: "Quick and clear",
       text:
-        "We felt overwhelmed by all of the technology around us, moving so fast with nobody taking to time to make things actually run smooth.",
+        "We build websites fast and make sure they’re easy to use. You’ll get what you need without the wait or the worry.",
     },
     {
-      name: "Leaf",
-      heading: "Simplicity over noise",
+      icon: "FiFeather",
+      heading: "Simple tools that grow with you",
       text:
-        "Every decision favors clarity, speed, and maintainability. No vendor lock‑in, no mystery meat navigation, no bloat.",
+        "Our websites are clean and light. They’re easy to update and ready to grow as your business grows.",
     },
     {
-      name: "Coffee", // have this use the FaCoffee version
-      heading: "Results you can feel",
+      icon: "Tree",
+      heading: "Made for people, not just screens",
       text:
-        "Cleaner UX, faster pages, and clearer messaging—from first click to contact. Launch quickly, iterate responsibly.",
+        "We care about how your site feels. It’s fast, easy to read, and fun to use—on any phone or computer.",
     },
   ],
-  cta = { label: "Sounds relaxing", href: "/book" },
+  cta = { label: "Start simple today", href: "/book" }
+
 }) {
   return (
     <section
@@ -75,7 +75,7 @@ export default function Story({
                 <div className="relative">
                   <span className="absolute -left-[0.35rem] top-3 hidden h-2 w-2 rounded-full bg-primary-200 sm:block" />
                   <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent-100 ring-1 ring-inset ring-accent-200 sm:h-10 sm:w-10">
-                    <SafeIcon {...item} className="h-5 w-5 text-accent-700" />
+                    <SafeIcon name={item.icon} {...item} className="h-5 w-5 text-accent-700" />
                   </span>
                 </div>
 

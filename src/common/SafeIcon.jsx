@@ -6,7 +6,12 @@ import { FiAlertTriangle } from "react-icons/fi";
 const SafeIcon = ({ children, name, ...props }) => {
   let IconComponent;
   try {
-    IconComponent = children || (name && FiIcons[`Fi${name}`]);
+    if (name.slice(0,2) == 'Fa') {
+      IconComponent = children || (name && FaIcons[`${name}`]);
+    } else if (name.slice(0,2) == 'Fi') {
+      IconComponent = children || (name && FiIcons[`${name}`]);
+    }
+    if (!IconComponent) {IconComponent = children || (name && FiIcons[`Fi${name}`]);}
     if (!IconComponent) {IconComponent = children || (name && FaIcons[`Fa${name}`]);}
   } catch (e) {
     IconComponent = null;
