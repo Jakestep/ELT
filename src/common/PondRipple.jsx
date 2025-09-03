@@ -49,7 +49,6 @@ const RippleBackground = ({ children, className, background }) => {
     const tooBig = window.innerWidth > 1950;
     let res = 512;
     if (isMobile) {res = 128}
-    if (tooBig) {res = 256;}
     const drop_radius = isMobile ? 20 : 20;
     const touch_perturbance = isMobile ? 0.05 : 0.05
     $el.ripples({
@@ -69,18 +68,20 @@ const RippleBackground = ({ children, className, background }) => {
         $el.ripples("drop", x, y, drop_radius, touch_perturbance);
       });
     } else {
-      $el.on("mousemove", (e) => {
-        const rect = $el[0].getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        $el.ripples("drop", x, y, drop_radius, 0.004);
-      });
-      $el.on("mousedown", (e) => {
-        const rect = $el[0].getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        $el.ripples("drop", x, y, drop_radius, touch_perturbance);
-      });
+      if (!tooBig) {
+        $el.on("mousemove", (e) => {
+          const rect = $el[0].getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          $el.ripples("drop", x, y, drop_radius, 0.004);
+        });
+        $el.on("mousedown", (e) => {
+          const rect = $el[0].getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          $el.ripples("drop", x, y, drop_radius, touch_perturbance);
+        });
+      }
     }
 
     // Controlled random drops
