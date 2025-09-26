@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import $ from "jquery";
 import { usePathname } from "next/navigation";
 
@@ -67,21 +67,22 @@ const RippleBackground = ({ children, className, background }) => {
         const y = touch.clientY - rect.top;
         $el.ripples("drop", x, y, drop_radius, touch_perturbance);
       });
-    } else {
-      if (!tooBig) {
-        $el.on("mousemove", (e) => {
-          const rect = $el[0].getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          $el.ripples("drop", x, y, drop_radius, 0.004);
-        });
-        $el.on("mousedown", (e) => {
-          const rect = $el[0].getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          $el.ripples("drop", x, y, drop_radius, touch_perturbance);
-        });
-      }
+    }
+    else {
+      // if (!tooBig) {
+      //   $el.on("mousemove", (e) => {
+      //     const rect = $el[0].getBoundingClientRect();
+      //     const x = e.clientX - rect.left;
+      //     const y = e.clientY - rect.top;
+      //     $el.ripples("drop", x, y, drop_radius, 0.004);
+      //   });
+      // }
+      $el.on("mousedown", (e) => {
+        const rect = $el[0].getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        $el.ripples("drop", x, y, drop_radius, touch_perturbance);
+      });
     }
 
     // Controlled random drops
@@ -94,7 +95,7 @@ const RippleBackground = ({ children, className, background }) => {
     let intervalId = null;
     const startDrops = () => {
       if (intervalId != null) return;
-      intervalId = setInterval(drop, isMobile ? 5000 : 7500);
+      intervalId = setInterval(drop, isMobile ? 4000 : 4000);
       try { $el.ripples("play"); } catch {}
     };
     const stopDrops = () => {
@@ -109,7 +110,7 @@ const RippleBackground = ({ children, className, background }) => {
     const startAfter = setTimeout(() => {
       drop();
       startDrops();
-    }, 1500);
+    }, 500);
 
     // Page Visibility (real backgrounding)
     const handleVisibilityChange = () => {
@@ -164,7 +165,6 @@ const RippleBackground = ({ children, className, background }) => {
       if ($el.data("ripples")) $el.ripples("destroy");
     };
   }, []);
-
 
   return (
     <div

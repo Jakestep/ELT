@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 
-const Modal = ({ isOpen, onClose, title, children }) => {
+const Modal = ({ isOpen, onClose, title, children, invasive = true }) => {
+
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") onClose();
@@ -12,6 +13,26 @@ const Modal = ({ isOpen, onClose, title, children }) => {
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
+
+  if (!invasive) {
+    return (
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[999]">
+        <button className={` inset-0 bg-black/40`} onClick={onClose} />
+        <div className="animate-fadeIn relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+          {title && <h2 className="mb-4 text-xl font-semibold">{title}</h2>}
+          <div className={`px-3`} >{children}</div>
+        </div>
+      </div>
+
+    )
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -25,7 +46,7 @@ const Modal = ({ isOpen, onClose, title, children }) => {
           &times;
         </button>
         {title && <h2 className="mb-4 text-xl font-semibold">{title}</h2>}
-        <div>{children}</div>
+        <div className={`px-3`} >{children}</div>
       </div>
     </div>
   );

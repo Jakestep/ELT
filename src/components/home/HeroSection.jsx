@@ -4,12 +4,32 @@ import { motion } from "motion/react";
 import RippleBackground from "@/common/PondRipple";
 import Flip3DButton from "../home/general/Flip3DButton";
 import SafeIcon from "@/common/SafeIcon";
+import Modal from "@/common/Modal";
+import { useEffect, useState } from "react";
 
 const HeroSection = () => {
+
+  const [noteOpen, setNoteOpen] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (!localStorage?.getItem("not-new")) {
+        setNoteOpen(true)
+        localStorage.setItem('not-new', true)
+      }
+    }, 1000);
+  }, [])
+
   return (
     // Mobile: natural height; md+: clamp the hero height
     <div className="relative">
       <RippleBackground>
+        
+        <Modal
+          invasive={false}
+          isOpen={noteOpen}
+          onClose={() => setNoteOpen(false)}
+        >Go ahead, <i className={`text-lg`} >click the water</i> <span className="ml-2 text-lg">:D</span></Modal>
         <section
           className={[
             "relative w-full",
