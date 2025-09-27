@@ -96,6 +96,7 @@ export default function FounderCard() {
           {/* CTA */}
           <div className="mt-10">
             <Link
+              target='_blank'
               href={founder.cta.href}
               className="inline-flex items-center justify-center rounded-xl bg-primary-700 px-6 py-3 text-lg font-medium text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary-300"
             >

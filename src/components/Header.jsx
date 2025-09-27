@@ -43,7 +43,7 @@ const Header = ({ className }) => {
     closed: {
       opacity: 0,
       height: 0,
-      padding: "0px",
+      padding: "0",
       transition: {
         duration: 0.3,
         ease: "easeInOut",
@@ -52,7 +52,7 @@ const Header = ({ className }) => {
     },
     open: {
       opacity: 1,
-      padding: "1rem",
+      padding: '0',
       height: "fit-content",
       transition: {
         duration: 0.4,
@@ -173,49 +173,51 @@ const Header = ({ className }) => {
             </motion.div>
           </motion.button>
         </div>
-
-        {/* Mobile Navigation with enhanced animations */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              className="box-border overflow-hidden bg-inherit md:hidden"
-            >
-              <motion.div className="flex flex-col space-y-1">
-                {navigation.map((item) => (
-                  <motion.div
-                    key={item.name}
-                    variants={itemVariants}
-                    className={`relative block w-full rounded-lg px-4 py-2 text-base font-medium transition-colors ${
-                      isActive(item.href)
-                        ? "text-accent-600 bg-accent-50"
-                        : "hover:text-accent-600 text-gray-700 hover:bg-gray-50"
-                    }`}
-                  >
+  
+          {/* Mobile Navigation with enhanced animations */}
+        <div className={`fixed left-0 w-full`} >
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={menuVariants}
+                className="box-border overflow-hidden md:hidden m-0 bg-background"
+              >
+                <motion.div className="flex flex-col space-y-1 m-3">
+                  {navigation.map((item) => (
+                    <motion.div
+                      key={item.name}
+                      variants={itemVariants}
+                      className={`relative block w-full rounded-lg px-4 py-2 text-base font-medium transition-colors ${
+                        isActive(item.href)
+                          ? "text-accent-600 bg-accent-50"
+                          : "hover:text-accent-600 text-gray-700 hover:bg-gray-50"
+                      }`}
+                    >
+                      <Link
+                        href={item.href}
+                        className={`absolute inset-0 block w-full rounded-lg px-4 py-2 text-base font-medium transition-colors`}
+                        onClick={() => setIsMenuOpen(false)}
+                      />
+                      {item.name}
+                    </motion.div>
+                  ))}
+                  <motion.div variants={itemVariants}>
                     <Link
-                      href={item.href}
-                      className={`absolute inset-0 block w-full rounded-lg px-4 py-2 text-base font-medium transition-colors`}
+                      href="/contact"
+                      className="bg-accent-600 hover:bg-accent-700 mx-4 mt-2 block rounded-lg px-4 py-2 text-center text-base font-medium text-white transition-colors"
                       onClick={() => setIsMenuOpen(false)}
-                    />
-                    {item.name}
+                    >
+                      Get Started
+                    </Link>
                   </motion.div>
-                ))}
-                <motion.div variants={itemVariants}>
-                  <Link
-                    href="/contact"
-                    className="bg-accent-600 hover:bg-accent-700 mx-4 mt-2 block rounded-lg px-4 py-2 text-center text-base font-medium text-white transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Get Started
-                  </Link>
                 </motion.div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            )}
+          </AnimatePresence>
+        </div>
       </nav>
     </header>
   );

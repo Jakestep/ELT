@@ -34,12 +34,12 @@ export default function Story({
       className="relative"
     >
       {/* Background flair (optional, lightweight) */}
-      <div
-        className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(50%_40%_at_50%_20%,#000_20%,transparent_70%)]"
+      {/* <div
+        className="hidden pointer-events-none absolute inset-0 [mask-image:radial-gradient(50%_40%_at_50%_20%,#000_20%,transparent_70%)]"
         aria-hidden="true"
       >
         <div className="absolute inset-x-0 top-0 h-48 bg-accent-50/60" />
-      </div>
+      </div> */}
 
       <div className="container mx-auto max-w-6xl px-6 py-20 lg:py-28">
         <div className="mx-auto max-w-3xl text-center">

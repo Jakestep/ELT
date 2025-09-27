@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const HeroSection = () => {
 
-  const [noteOpen, setNoteOpen] = useState(true);
+  const [noteOpen, setNoteOpen] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,7 +29,8 @@ const HeroSection = () => {
           invasive={false}
           isOpen={noteOpen}
           onClose={() => setNoteOpen(false)}
-        >Go ahead, <i className={`text-lg`} >click the water</i> <span className="ml-2 text-lg">:D</span></Modal>
+        ><div className="text-nowrap">Go ahead, <i className={`text-lg`} ><span className={` pointer-coarse:hidden inline-block`} >click</span><span className={`pointer-coarse:inline-block hidden`} >tap</span> the water</i> <span className="ml-2 text-lg">:D</span></div>
+        </Modal>
         <section
           className={[
             "relative w-full",
